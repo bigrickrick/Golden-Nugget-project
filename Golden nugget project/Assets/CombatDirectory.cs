@@ -36,7 +36,7 @@ public class CombatDirectory : MonoBehaviour
             if(timebetweenspawn <= 0)
             {
                 SpawnEnemy();
-                timebetweenspawn = 0.5f;
+                timebetweenspawn = 0.2f;
             }
             
            
@@ -66,7 +66,7 @@ public class CombatDirectory : MonoBehaviour
     }
     private void Start()
     {
-        Credit = 100;
+        Credit = 10000;
     }
 
     public int GenerateRandomEnemyNumber()
