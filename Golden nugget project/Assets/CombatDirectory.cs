@@ -53,7 +53,7 @@ public class CombatDirectory : MonoBehaviour
         if (IsSpawntimerRunning == true)
         {
             timer -= Time.deltaTime;
-            Debug.Log("time before next spawn " +timer);
+            //Debug.Log("time before next spawn " +timer);
             if (timer <= 0)
             {
                 int creditGain = 100 + difficultyScaler * 10;
@@ -73,7 +73,7 @@ public class CombatDirectory : MonoBehaviour
     {
         
         int randomEnemy = randomEnemyNumber.Next(0,EnemyList.Length);
-        Debug.Log("Random Enemy Number generated " + randomEnemy);
+        //Debug.Log("Random Enemy Number generated " + randomEnemy);
         return randomEnemy;
     }
     public void RandomiseSpawnPoint()
