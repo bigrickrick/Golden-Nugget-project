@@ -6,23 +6,21 @@ public class HPcontroller : MonoBehaviour
 {
     public Slider hpBar;
     
-    private float maxHP = Player.Instance.GetComponent<Entity>().HealthPoints; 
-    private float currentHP = Player.Instance.GetComponent<Entity>().HealthPoints;  
-
+    private float maxHP; 
+    private float currentHP = Player.Instance.GetComponent<Entity>().HealthPoints;
+   
     void Start()
     {
-        
+        maxHP = Player.Instance.GetComponent<Entity>().HealthPoints;
         hpBar.maxValue = maxHP;
         hpBar.value = currentHP;
     }
-    private void Update()
-    {
-        UpdateHP(currentHP);
-    }
 
-    public void UpdateHP(float newHP)
+    public void UpdateHP()
     {
-        currentHP = Mathf.Clamp(newHP, 0f, maxHP);  
+        
+        currentHP = Player.Instance.GetComponent<Entity>().HealthPoints;
+        Debug.Log(currentHP);
         hpBar.value = currentHP;
         Debug.Log("hp bar updated");
     }

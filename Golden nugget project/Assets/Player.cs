@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
         playerLookatMouse();
         PlayerPosition.position = Instance.PlayerPosition.position;
         
+        
     }
     private void HandleMovement()
     {
