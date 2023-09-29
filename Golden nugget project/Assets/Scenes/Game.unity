@@ -1701,7 +1701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -563.3, y: 235.7}
+  m_AnchoredPosition: {x: -573.1, y: 239.7}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1532534565
@@ -1743,7 +1743,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 280088244}
   m_HandleRect: {fileID: 0}
@@ -2312,6 +2312,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
+  - {fileID: 716679169}
   - {fileID: 705507995}
   - {fileID: 679378863}
   - {fileID: 1710094868}
@@ -2330,6 +2331,5 @@ SceneRoots:
   - {fileID: 520237304}
   - {fileID: 62282134}
   - {fileID: 1020855720}
-  - {fileID: 716679169}
   - {fileID: 1630701510}
   - {fileID: 1898861826}

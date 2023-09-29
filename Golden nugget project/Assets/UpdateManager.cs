@@ -9,5 +9,10 @@ public class UpdateManager : MonoBehaviour
     private void Update()
     {
         hp.UpdateHP();
+        
+    }
+    private void Start()
+    {
+        hp.gameObject.SetActive(true);
     }
 }
