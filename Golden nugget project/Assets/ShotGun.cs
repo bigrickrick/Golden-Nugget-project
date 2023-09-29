@@ -7,8 +7,8 @@ public class ShotGun : Gun
     public GameObject bulletPrefab;     
     public Transform[] firePoints;       
     public float bulletSpeed = 45f;
-    public int pelletsPerShot = 2;      
-
+    public int pelletsPerShot = 2;
+    public int GunDamage = 10;
     public override void shoot()
     {
         for (int i = 0; i < pelletsPerShot; i++)

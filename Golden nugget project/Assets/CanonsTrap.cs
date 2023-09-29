@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Gun : MonoBehaviour
+public class CanonsTrap : MonoBehaviour
 {
-
-    public abstract void shoot();
-    
+    public Transform firePoint;
 
 }

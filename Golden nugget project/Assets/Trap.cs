@@ -5,16 +5,22 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public Transform[] firePoints;
+    public CanonsTrap[] Canons;
     public float bulletSpeed = 45f;
     public float detectionAngle = 360f;
-    public float detectionRange = 20f;
-
+    public float detectionRange = 5f;
+    private float ShootingTimer = 1;
     private void Update()
     {
         if (PlayerInshootrange())
         {
-            TrapActivate();
+            ShootingTimer -= Time.deltaTime;
+            if (ShootingTimer <= 0)
+            {
+                TrapActivate();
+                ShootingTimer = 0.5f;
+            }
+                
         }
     }
     private bool PlayerInshootrange()
@@ -28,15 +34,15 @@ public class Trap : MonoBehaviour
     }
     public void TrapActivate()
     {
-        foreach (Transform firePoint in firePoints)
+        foreach (CanonsTrap canons in Canons)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, canons.firePoint.position, Quaternion.identity);
 
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
 
-            rb.velocity = firePoint.eulerAngles * bulletSpeed;
+            rb.velocity = canons.transform.eulerAngles * bulletSpeed;
         }
     }
 

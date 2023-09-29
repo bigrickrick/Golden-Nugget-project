@@ -66,7 +66,7 @@ public class CombatDirectory : MonoBehaviour
     }
     private void Start()
     {
-        Credit = 10000;
+        Credit = 100;
     }
 
     public int GenerateRandomEnemyNumber()
