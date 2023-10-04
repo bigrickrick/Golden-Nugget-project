@@ -53,9 +53,12 @@ public class Player : MonoBehaviour
         HandleMovement();
         playerLookatMouse();
         PlayerPosition.position = Instance.PlayerPosition.position;
-        
-        
+
+        //if(isShooting)
+        // Shoot!
     }
+
+
     private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
