@@ -33,7 +33,7 @@ public class HPcontroller : MonoBehaviour
         {
             currentHP = playerEntity.HealthPoints;
             hpBar.value = currentHP;
-            Debug.Log("hp bar updated");
+            //Debug.Log("hp bar updated");
         }
         else
         {

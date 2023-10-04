@@ -9,24 +9,30 @@ public class ShotGun : Gun
     public float bulletSpeed = 45f;
     public int pelletsPerShot = 1;
     public int GunDamage = 10;
+    
+    
     public override void shoot()
     {
-        for (int i = 0; i < pelletsPerShot; i++)
+        if (HasWeapon != false)
         {
-            
-            Vector3 randomDirection = Quaternion.Euler(0, Random.Range(-10f, 10f), 0) * transform.forward;
-
-            foreach (Transform firePoint in firePoints)
+            for (int i = 0; i < pelletsPerShot; i++)
             {
-                
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-                
-                Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                Vector3 randomDirection = Quaternion.Euler(0, Random.Range(-10f, 10f), 0) * transform.forward;
 
-                
-                rb.velocity = randomDirection * bulletSpeed;
+                foreach (Transform firePoint in firePoints)
+                {
+
+                    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+
+                    rb.velocity = randomDirection * bulletSpeed;
+                }
             }
         }
+        
     }
 }

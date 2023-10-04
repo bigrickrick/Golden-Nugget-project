@@ -10,6 +10,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteractAction;
     //public event EventHandler OnPauseAction;
     public event EventHandler OnShoot;
+    public event EventHandler OnWeaponChanged;
 
     private PlayerInputAction playerInputAction;
     private void Awake()
@@ -20,7 +21,14 @@ public class GameInput : MonoBehaviour
 
         playerInputAction.Player.Interact.performed += Interact_performed;
         playerInputAction.Player.Shoot.performed += Shoot_performed;
+        playerInputAction.Player.ChangeWeapon.performed += ChangeWeapon_performed;
        
+    }
+
+    private void ChangeWeapon_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnWeaponChanged?.Invoke(this, EventArgs.Empty);
+        Debug.Log("Changed Weapon Input");
     }
 
     private void Shoot_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

@@ -17,20 +17,28 @@ public class Player : MonoBehaviour
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask counterLayerMask;
     private Transform mouse;
-    [SerializeField] private MouseLook mousePosition;
+    public MouseLook mousePosition;
     [SerializeField] private Bullet Playerbullet;
-    [SerializeField] private Gun gun;
+    public GunInventory gunInventory;
     public Transform PlayerPosition;
     private bool isWalking;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
+        gameInput.OnWeaponChanged += GameInput_OnWeaponChanged;
+    }
+
+    private void GameInput_OnWeaponChanged(object sender, EventArgs e)
+    {
+        gunInventory.WeaponSwitch(1);   
+        Debug.Log("Weapon changed");
     }
 
     private void GameInput_OnShoot(object sender, EventArgs e)
     {
-        gun.shoot();
+        gunInventory.currentGunUsed.shoot();
     }
+    
     
     private void Awake()
     {
