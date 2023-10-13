@@ -9,10 +9,11 @@ public class ShotGun : Gun
     public float bulletSpeed = 45f;
     public int pelletsPerShot = 1;
     public int GunDamage = 10;
-    
-    
+
+    private float DefaultShootingSpeed;
     public override void shoot()
     {
+        DefaultShootingSpeed = ShootingSpeed;
         ShootingSpeed -= Time.deltaTime;
         if (ShootingSpeed <= 0)
         {
@@ -37,6 +38,7 @@ public class ShotGun : Gun
                     }
                 }
             }
+            ShootingSpeed = DefaultShootingSpeed;
         }
         
         

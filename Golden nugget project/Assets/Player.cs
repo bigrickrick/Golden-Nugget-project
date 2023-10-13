@@ -27,6 +27,12 @@ public class Player : MonoBehaviour
     {
         gameInput.OnShoot += GameInput_OnShoot;
         gameInput.OnWeaponChanged += GameInput_OnWeaponChanged;
+        gameInput.OnStopShoot += GameInput_OnStopShoot;
+    }
+
+    private void GameInput_OnStopShoot(object sender, EventArgs e)
+    {
+        IsShooting = false;
     }
 
     private void GameInput_OnWeaponChanged(object sender, EventArgs e)
@@ -38,10 +44,6 @@ public class Player : MonoBehaviour
     private void GameInput_OnShoot(object sender, EventArgs e)
     {
         IsShooting = true;
-        while (IsShooting == true)
-        {
-            gunInventory.currentGunUsed.shoot();
-        }
         
     }
     
@@ -60,8 +62,12 @@ public class Player : MonoBehaviour
         playerLookatMouse();
         PlayerPosition.position = Instance.PlayerPosition.position;
 
-        //if(isShooting)
-        // Shoot!
+        if (IsShooting == true)
+        {
+            gunInventory.currentGunUsed.shoot();
+        }
+
+        
     }
 
 

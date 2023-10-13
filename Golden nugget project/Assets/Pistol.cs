@@ -10,11 +10,16 @@ public class Pistol : Gun
     public Transform firePoint;
     
     float bulletSpeed = 35f;
-    
+    private float timeSinceLastShot = 0;
+
     public override void shoot()
     {
-        ShootingSpeed -=Time.deltaTime;
-        if (ShootingSpeed <= 0)
+
+
+
+        timeSinceLastShot += Time.deltaTime;
+        Debug.Log("TimeSincelastShot " + timeSinceLastShot);
+        if (timeSinceLastShot >= ShootingSpeed)
         {
             GameObject bul = Instantiate(bullet, firePoint.position, Quaternion.identity);
 
@@ -25,6 +30,8 @@ public class Pistol : Gun
 
 
             rb.velocity = shootingDirection * bulletSpeed;
+            timeSinceLastShot = 0;
+
         }
         
     }
