@@ -7,7 +7,7 @@ public abstract class Gun : MonoBehaviour
 
     public abstract void shoot();
     public bool HasWeapon;
-    
-    
+    public float ShootingSpeed;
+
 
 }

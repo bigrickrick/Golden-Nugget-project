@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Bullet Playerbullet;
     public GunInventory gunInventory;
     public Transform PlayerPosition;
+    private bool IsShooting;
     private bool isWalking;
     private void Start()
     {
@@ -36,7 +37,12 @@ public class Player : MonoBehaviour
 
     private void GameInput_OnShoot(object sender, EventArgs e)
     {
-        gunInventory.currentGunUsed.shoot();
+        IsShooting = true;
+        while (IsShooting == true)
+        {
+            gunInventory.currentGunUsed.shoot();
+        }
+        
     }
     
     

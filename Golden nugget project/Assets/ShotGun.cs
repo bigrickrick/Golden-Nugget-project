@@ -13,26 +13,32 @@ public class ShotGun : Gun
     
     public override void shoot()
     {
-        if (HasWeapon != false)
+        ShootingSpeed -= Time.deltaTime;
+        if (ShootingSpeed <= 0)
         {
-            for (int i = 0; i < pelletsPerShot; i++)
+            if (HasWeapon != false)
             {
 
-                Vector3 randomDirection = Quaternion.Euler(0, Random.Range(-10f, 10f), 0) * transform.forward;
-
-                foreach (Transform firePoint in firePoints)
+                for (int i = 0; i < pelletsPerShot; i++)
                 {
 
-                    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                    Vector3 randomDirection = Quaternion.Euler(0, Random.Range(-10f, 10f), 0) * transform.forward;
+
+                    foreach (Transform firePoint in firePoints)
+                    {
+
+                        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
 
-                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                        Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
 
-                    rb.velocity = randomDirection * bulletSpeed;
+                        rb.velocity = randomDirection * bulletSpeed;
+                    }
                 }
             }
         }
+        
         
     }
 }
