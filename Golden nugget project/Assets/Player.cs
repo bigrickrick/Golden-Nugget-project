@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public Transform PlayerPosition;
     private bool IsShooting;
     private bool isWalking;
+    private float timebetweenshoots = 0;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
@@ -44,7 +45,8 @@ public class Player : MonoBehaviour
     private void GameInput_OnShoot(object sender, EventArgs e)
     {
         IsShooting = true;
-        
+       
+
     }
     
     
@@ -61,13 +63,27 @@ public class Player : MonoBehaviour
         HandleMovement();
         playerLookatMouse();
         PlayerPosition.position = Instance.PlayerPosition.position;
-
         if (IsShooting == true)
         {
-            gunInventory.currentGunUsed.shoot();
+            
+            if (timebetweenshoots <= 0)
+            {
+                gunInventory.currentGunUsed.shoot();
+                timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed;
+            }
+           
+        }
+        if (timebetweenshoots > 0)
+        {
+            timebetweenshoots -= Time.deltaTime;
+            Debug.Log("shooting speed " + timebetweenshoots);
         }
 
-        
+
+
+
+
+
     }
 
 

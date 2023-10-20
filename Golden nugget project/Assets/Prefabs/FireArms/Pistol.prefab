@@ -78,7 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HasWeapon: 1
-  ShootingSpeed: 4
+  ShootingSpeed: 0.5
+  BaseShootingSpeed: 0.5
   GunSprite: {fileID: 21300000, guid: a00b59713e3929943a50eebe573ef9e7, type: 3}
   bullet: {fileID: 6439983250298250649, guid: a56a3ac16aa55d14ca16408fe3b983e7, type: 3}
   firePoint: {fileID: 3654408261335706385}

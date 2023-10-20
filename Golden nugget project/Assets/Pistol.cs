@@ -10,29 +10,20 @@ public class Pistol : Gun
     public Transform firePoint;
     
     float bulletSpeed = 35f;
-    private float timeSinceLastShot = 0;
+    
 
     public override void shoot()
     {
 
+        GameObject bul = Instantiate(bullet, firePoint.position, Quaternion.identity);
 
 
-        timeSinceLastShot += Time.deltaTime;
-        Debug.Log("TimeSincelastShot " + timeSinceLastShot);
-        if (timeSinceLastShot >= ShootingSpeed)
-        {
-            GameObject bul = Instantiate(bullet, firePoint.position, Quaternion.identity);
+        Vector3 shootingDirection = (Player.Instance.mousePosition.MousePosition - firePoint.position).normalized;
+
+        Rigidbody rb = bul.GetComponent<Rigidbody>();
 
 
-            Vector3 shootingDirection = (Player.Instance.mousePosition.MousePosition - firePoint.position).normalized;
-
-            Rigidbody rb = bul.GetComponent<Rigidbody>();
-
-
-            rb.velocity = shootingDirection * bulletSpeed;
-            timeSinceLastShot = 0;
-
-        }
+        rb.velocity = shootingDirection * bulletSpeed;
         
     }
 }
