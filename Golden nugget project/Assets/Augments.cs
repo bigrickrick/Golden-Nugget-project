@@ -4,5 +4,11 @@ using UnityEngine;
 
 public abstract class Augments : ScriptableObject
 {
-    public abstract void Apply(GameObject target);
+    public bool isApplied { get; private set; }
+    public abstract void Apply(Entity target);
+    
+    public void MarkAsApplied()
+    {
+        isApplied = true;
+    }
 }

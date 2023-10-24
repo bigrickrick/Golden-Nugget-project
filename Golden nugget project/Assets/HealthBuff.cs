@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu(menuName = "augments/Healthbuff")]
 public class HealthBuff : Augments
 {
+    
     public int amount;
-    public override void Apply(GameObject target)
+    
+    public override void Apply(Entity target)
     {
-        target.GetComponent<Entity>().HealthPoints += amount;
+        if (!isApplied)
+        {
+            target.GetComponent<Entity>().HealthPoints += amount;
+            target.GetComponent<Entity>().maxHealthPoints += amount;
+            Debug.Log("HP augmented by " + amount);
+            MarkAsApplied();
+        }
     }
 }

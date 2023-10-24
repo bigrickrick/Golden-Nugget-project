@@ -191,7 +191,7 @@ MonoBehaviour:
   CreditCost: 10
   bullet: {fileID: 5772211072083701653, guid: a4bb10925be84c142a67292c09d0625a, type: 3}
   firePoint: {fileID: 3874324343661267746}
-  movementSpeed: 10
+  baseShootingTimer: 1
   BulletSpawnPoint:
   - {fileID: 1218211260696457072}
 --- !u!54 &-2486354681763335933
@@ -234,7 +234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 30
+  maxHealthPoints: 30
   entity: {fileID: 6842954925123431761}
+  EntitySpeed: 10
+  attackspeedModifier: 1
 --- !u!1 &7643449514355080271
 GameObject:
   m_ObjectHideFlags: 0

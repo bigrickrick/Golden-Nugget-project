@@ -11,13 +11,18 @@ public class EnemyScript : MonoBehaviour
     public Transform firePoint;
    
     float bulletSpeed = 35f;
-    private float ShootingTimer = 1;
-    public float movementSpeed = 10f;
+    public float baseShootingTimer;
+    
     public static EnemyScript Instance { get; private set; }
     [SerializeField] GameObject[] BulletSpawnPoint;
-    
+    private float ShootingTimer;
+    private void Start()
+    {
+        ShootingTimer = baseShootingTimer / gameObject.GetComponent<Entity>().attackspeedModifier;
+    }
     private void Update()
     {
+       
         if (Player.Instance != null)
         {
             
@@ -28,7 +33,7 @@ public class EnemyScript : MonoBehaviour
             directionToPlayer.Normalize();
 
            
-            transform.Translate(directionToPlayer * movementSpeed * Time.deltaTime);
+            transform.Translate(directionToPlayer * gameObject.GetComponent<Entity>().EntitySpeed * Time.deltaTime);
         }
         EnemyLookAtPlayer();
         if (PlayerInshootrange())
@@ -38,7 +43,7 @@ public class EnemyScript : MonoBehaviour
             if (ShootingTimer <= 0)
             {
                 EnemyShoot();
-                ShootingTimer = 0.5f;
+                ShootingTimer = baseShootingTimer / gameObject.GetComponent<Entity>().attackspeedModifier;
             }
             
         }

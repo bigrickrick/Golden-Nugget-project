@@ -9,11 +9,11 @@ public class Player : MonoBehaviour
 
    
     public static Player Instance { get; private set; }
-    
-   
-    
 
-    [SerializeField] private float moveSpeed = 15f;
+
+
+    [SerializeField] List<Augments> augmentsList = new List<Augments>();
+    
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask counterLayerMask;
     private Transform mouse;
@@ -56,7 +56,10 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("there is more than one Player instance");
         }
+
         Instance = this;
+       
+
     }
     private void Update()
     {
@@ -69,7 +72,7 @@ public class Player : MonoBehaviour
             if (timebetweenshoots <= 0)
             {
                 gunInventory.currentGunUsed.shoot();
-                timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed;
+                timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed/Instance.GetComponent<Entity>().attackspeedModifier;
             }
            
         }
@@ -79,6 +82,10 @@ public class Player : MonoBehaviour
             Debug.Log("shooting speed " + timebetweenshoots);
         }
 
+        foreach (Augments augments in augmentsList)
+        {
+            augments.Apply(Instance.GetComponent<Entity>());
+        }
 
 
 
@@ -91,7 +98,7 @@ public class Player : MonoBehaviour
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
-        float moveDistance = moveSpeed * Time.deltaTime;
+        float moveDistance = Instance.GetComponent<Entity>().EntitySpeed * Time.deltaTime;
         float playerRadius = .7f;
         float playerHeight = 2f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
@@ -99,7 +106,7 @@ public class Player : MonoBehaviour
 
         if (canMove)
         {
-            transform.position += moveDir * moveSpeed * Time.deltaTime;
+            transform.position += moveDir * Instance.GetComponent<Entity>().EntitySpeed * Time.deltaTime;
         }
 
         

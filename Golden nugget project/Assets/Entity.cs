@@ -5,7 +5,11 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public int HealthPoints;
+    public int maxHealthPoints;
     public GameObject entity;
+    public float EntitySpeed;
+    public float attackspeedModifier;
+    
     public void DamageRecieve(int damage)
     {
         HealthPoints = HealthPoints - damage;
@@ -13,6 +17,11 @@ public class Entity : MonoBehaviour
     private void Update()
     {
         die();
+        
+    }
+    private void Start()
+    {
+        maxHealthPoints = HealthPoints;
     }
     private void die()
     {

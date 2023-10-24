@@ -2117,7 +2117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6b0d13731fb6a488cb69db931db775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  augmentsList:
+  - {fileID: 11400000, guid: 90480de73d27a3549994737ad1065cb1, type: 2}
+  - {fileID: 11400000, guid: 96106b3475804c94e8f1ccd3fb389a5d, type: 2}
+  - {fileID: 11400000, guid: 6ec4887852adc08469caee590f7fbc29, type: 2}
   gameInput: {fileID: 872628999}
   counterLayerMask:
     serializedVersion: 2
@@ -2189,7 +2192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 200
+  maxHealthPoints: 200
   entity: {fileID: 1710094867}
+  EntitySpeed: 15
+  attackspeedModifier: 1
 --- !u!1 &1772238301
 GameObject:
   m_ObjectHideFlags: 0
