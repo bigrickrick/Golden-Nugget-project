@@ -25,6 +25,7 @@ public class HPcontroller : MonoBehaviour
         {
             Debug.LogError("Player Entity component not found.");
         }
+        hpBar.gameObject.SetActive(true);
     }
 
     public void UpdateHP()
