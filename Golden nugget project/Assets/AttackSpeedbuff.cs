@@ -10,6 +10,7 @@ public class AttackSpeedbuff : Augments
     public override void Apply(Entity target)
     {
         target.attackspeedModifier += attackspeedmodifier;
+        
     }
 
 }

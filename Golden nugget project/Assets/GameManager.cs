@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         if(timebetweenAugments <= 0)
         {
             augmentUi.SetActive(true);
-            timebetweenAugments = 100;
+            timebetweenAugments = 10;
         }
     }
 

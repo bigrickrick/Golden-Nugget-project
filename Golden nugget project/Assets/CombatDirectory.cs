@@ -9,7 +9,7 @@ public class CombatDirectory : MonoBehaviour
     private System.Random randomCoordonateForSpawn = new System.Random();
     public Transform spawnPoint;
     private bool IsSpawntimerRunning;
-    private float timer = 20;
+    private float timer = 10;
     private int difficultyScaler = 1;
     private float timebetweenspawn = 0.5f;
     
@@ -58,10 +58,10 @@ public class CombatDirectory : MonoBehaviour
             //Debug.Log("time before next spawn " +timer);
             if (timer <= 0)
             {
-                int creditGain = 100 + difficultyScaler * 10;
+                int creditGain = 100 + difficultyScaler * 20;
                 Credit = creditGain;
                 IsSpawntimerRunning = false;
-                timer = 20;
+                timer = 10;
                 difficultyScaler += 1;
             }
         }
