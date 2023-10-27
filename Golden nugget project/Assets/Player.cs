@@ -24,11 +24,34 @@ public class Player : MonoBehaviour
     private bool IsShooting;
     private bool isWalking;
     private float timebetweenshoots = 0;
+    private bool isPaused;
+    public GameObject pauseMenuCanvas;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
         gameInput.OnWeaponChanged += GameInput_OnWeaponChanged;
         gameInput.OnStopShoot += GameInput_OnStopShoot;
+        gameInput.OnPause += GameInput_OnPause;
+        isPaused = false;
+    }
+
+    private void GameInput_OnPause(object sender, EventArgs e)
+    {
+        isPaused = !isPaused; 
+
+        if (isPaused)
+        {
+            Debug.Log("Game paused");
+            Time.timeScale = 0;
+            pauseMenuCanvas.gameObject.SetActive(true);
+            
+        }
+        else
+        {
+            Debug.Log("Game resumed");
+            Time.timeScale = 1;
+            pauseMenuCanvas.gameObject.SetActive(false);
+        }
     }
 
     private void GameInput_OnStopShoot(object sender, EventArgs e)

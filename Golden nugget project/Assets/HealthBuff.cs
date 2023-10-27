@@ -15,6 +15,7 @@ public class HealthBuff : Augments
             target.GetComponent<Entity>().maxHealthPoints += amount;
             Debug.Log("HP augmented by " + amount);
             MarkAsApplied();
+            
         }
     }
 }
