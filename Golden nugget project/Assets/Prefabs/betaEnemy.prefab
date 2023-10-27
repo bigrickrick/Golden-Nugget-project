@@ -147,9 +147,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2117080209680427040}
-  - component: {fileID: 426308733738905345}
   - component: {fileID: -2486354681763335933}
   - component: {fileID: 4617174061070491540}
+  - component: {fileID: 954028222308684133}
   m_Layer: 0
   m_Name: betaEnemy
   m_TagString: Enemy
@@ -174,26 +174,6 @@ Transform:
   - {fileID: 3232788250846746576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &426308733738905345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6842954925123431761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1114a9389324b4692372ce6cf2b589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionAngle: 45
-  detectionRange: 10
-  CreditCost: 10
-  bullet: {fileID: 5772211072083701653, guid: a4bb10925be84c142a67292c09d0625a, type: 3}
-  firePoint: {fileID: 3874324343661267746}
-  baseShootingTimer: 1
-  BulletSpawnPoint:
-  - {fileID: 1218211260696457072}
 --- !u!54 &-2486354681763335933
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -238,6 +218,28 @@ MonoBehaviour:
   entity: {fileID: 6842954925123431761}
   EntitySpeed: 10
   attackspeedModifier: 1
+--- !u!114 &954028222308684133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842954925123431761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06c19612937e99468fa58fa72145f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionAngle: 45
+  detectionRange: 100
+  CreditCost: 10
+  bullet: {fileID: 5772211072083701653, guid: a4bb10925be84c142a67292c09d0625a, type: 3}
+  firePoint: {fileID: 3874324343661267746}
+  bulletSpeed: 35
+  baseShootingTimer: 2
+  BulletSpawnPoint:
+  - {fileID: 1218211260696457072}
+  ShootingTimer: 2
 --- !u!1 &7643449514355080271
 GameObject:
   m_ObjectHideFlags: 0

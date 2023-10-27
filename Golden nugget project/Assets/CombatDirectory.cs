@@ -12,6 +12,7 @@ public class CombatDirectory : MonoBehaviour
     private float timer = 20;
     private int difficultyScaler = 1;
     private float timebetweenspawn = 0.5f;
+    
     //this will be the list of enemies that the GameDirectory can spawn
     [SerializeField] private EnemyScript[] EnemyList;
     //each enemy has its own credit cost
@@ -30,6 +31,7 @@ public class CombatDirectory : MonoBehaviour
     }
     private void Update()
     {
+
         if (Credit > 0)
         {
             timebetweenspawn -= Time.deltaTime;

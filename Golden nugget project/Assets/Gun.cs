@@ -9,6 +9,7 @@ public abstract class Gun : MonoBehaviour
     public bool HasWeapon;
     public float ShootingSpeed;
     public float BaseShootingSpeed;
+    public float bulletSpeed;
     public Sprite GunSprite;
 
 

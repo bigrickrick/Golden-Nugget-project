@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SupremeHealthBuff
   m_EditorClassIdentifier: 
   isApplied: 0
+  AugmentName: Supreme health Buff
   amount: 100

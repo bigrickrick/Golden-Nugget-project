@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
 
 
-    [SerializeField] List<Augments> augmentsList = new List<Augments>();
+   
     
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask counterLayerMask;
@@ -105,14 +105,7 @@ public class Player : MonoBehaviour
             Debug.Log("shooting speed " + timebetweenshoots);
         }
 
-        foreach (Augments augments in augmentsList)
-        {
-            augments.Apply(Instance.GetComponent<Entity>());
-        }
-
-
-
-
+       
 
     }
 

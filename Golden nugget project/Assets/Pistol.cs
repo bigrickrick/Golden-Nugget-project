@@ -9,7 +9,7 @@ public class Pistol : Gun
     public GameObject bullet;
     public Transform firePoint;
     
-    float bulletSpeed = 35f;
+    
     
 
     public override void shoot()

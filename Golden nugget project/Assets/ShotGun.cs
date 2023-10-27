@@ -6,7 +6,7 @@ public class ShotGun : Gun
 {
     public GameObject bulletPrefab;     
     public Transform[] firePoints;       
-    public float bulletSpeed = 45f;
+    
     public int pelletsPerShot = 1;
     public int GunDamage = 10;
 

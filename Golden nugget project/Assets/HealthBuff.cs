@@ -9,13 +9,9 @@ public class HealthBuff : Augments
     
     public override void Apply(Entity target)
     {
-        if (!isApplied)
-        {
-            target.GetComponent<Entity>().HealthPoints += amount;
-            target.GetComponent<Entity>().maxHealthPoints += amount;
-            Debug.Log("HP augmented by " + amount);
-            MarkAsApplied();
-            
-        }
+        target.GetComponent<Entity>().HealthPoints += amount;
+        target.GetComponent<Entity>().maxHealthPoints += amount;
+        Debug.Log("HP augmented by " + amount);
+        MarkAsApplied();
     }
 }

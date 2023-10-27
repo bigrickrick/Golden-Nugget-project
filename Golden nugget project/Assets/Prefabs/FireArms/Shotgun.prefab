@@ -80,13 +80,13 @@ MonoBehaviour:
   HasWeapon: 1
   ShootingSpeed: 0.8
   BaseShootingSpeed: 0.8
+  bulletSpeed: 40
   GunSprite: {fileID: 21300000, guid: 3fa963ca811b6b247a8de1ae66ef6b35, type: 3}
   bulletPrefab: {fileID: 6439983250298250649, guid: a56a3ac16aa55d14ca16408fe3b983e7, type: 3}
   firePoints:
   - {fileID: 6899289796891709364}
   - {fileID: 7907654269824097029}
   - {fileID: 8433215419211452009}
-  bulletSpeed: 45
   pelletsPerShot: 2
   GunDamage: 10
 --- !u!1 &4816976219958764610

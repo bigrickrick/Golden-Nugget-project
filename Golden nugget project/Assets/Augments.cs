@@ -6,6 +6,7 @@ public abstract class Augments : ScriptableObject
 {
     public bool isApplied;
     public abstract void Apply(Entity target);
+    public string AugmentName;
     private void Awake()
     {
         isApplied = false;

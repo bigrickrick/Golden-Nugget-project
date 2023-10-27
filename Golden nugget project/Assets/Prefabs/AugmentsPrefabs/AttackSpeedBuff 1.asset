@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a123f6684626304408ebe798696bfd87, type: 3}
-  m_Name: mediumHealthBuff
+  m_Script: {fileID: 11500000, guid: b4f102e73ceb2404697f8d0e6fb82a22, type: 3}
+  m_Name: AttackSpeedBuff 1
   m_EditorClassIdentifier: 
   isApplied: 0
-  AugmentName: Medium health Buff
-  amount: 40
+  AugmentName: attack speed buff II
+  attackspeedmodifier: 0.4
