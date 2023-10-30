@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private bool IsShooting;
     private bool isWalking;
     private float timebetweenshoots = 0;
-    private bool isPaused;
+    public bool isPaused;
     public GameObject pauseMenuCanvas;
     private void Start()
     {

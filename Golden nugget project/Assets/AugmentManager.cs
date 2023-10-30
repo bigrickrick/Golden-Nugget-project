@@ -10,7 +10,7 @@ public class AugmentManager : MonoBehaviour
     public List<Button> choices = new List<Button>();
     private System.Random randomAugments = new System.Random();
 
-    private void Awake()
+    public void CreateChoice()
     {
         for (int i = 0; i < choices.Count; i++)
         {

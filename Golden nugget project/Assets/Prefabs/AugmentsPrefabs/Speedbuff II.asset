@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isApplied: 0
   AugmentName: Speedbuff II
-  SpeedAmount: 10
+  SpeedAmount: 3
