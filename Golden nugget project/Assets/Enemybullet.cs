@@ -10,7 +10,7 @@ public class Enemybullet : Bullet
         if (collision.gameObject.CompareTag("Player"))
         {
             Entity player = collision.gameObject.GetComponent<Entity>();
-            Destroy(gameObject);
+            
             if (player != null)
             {
                 player.DamageRecieve(damage);
@@ -18,6 +18,7 @@ public class Enemybullet : Bullet
                 Debug.Log("Current hp: " + player.HealthPoints);
 
             }
+            Destroy(gameObject);
         }
 
     }
