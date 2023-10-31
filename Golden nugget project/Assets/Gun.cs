@@ -11,6 +11,7 @@ public abstract class Gun : MonoBehaviour
     public float BaseShootingSpeed;
     public float bulletSpeed;
     public Sprite GunSprite;
+    public int GunDamage;
 
 
 }

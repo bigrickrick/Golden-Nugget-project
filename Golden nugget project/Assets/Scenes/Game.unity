@@ -2418,6 +2418,7 @@ MonoBehaviour:
   augmentUi: {fileID: 995628001}
   weaponlist:
   - {fileID: 2113660918717926507, guid: 23514bf57c043fc48a46ee342ed4b69a, type: 3}
+  - {fileID: 5624559088100155215, guid: 5980ccb55da5e9646bb0c293356e7125, type: 3}
 --- !u!4 &1141711180
 Transform:
   m_ObjectHideFlags: 0
@@ -3205,7 +3206,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   mousePosition: {fileID: 1615635871}
-  Playerbullet: {fileID: 5046119855865847025, guid: a56a3ac16aa55d14ca16408fe3b983e7, type: 3}
+  Playerbullet: {fileID: 0}
   gunInventory: {fileID: 81228865}
   PlayerPosition: {fileID: 884327058}
   isPaused: 0

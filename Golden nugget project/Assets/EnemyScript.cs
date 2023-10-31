@@ -9,7 +9,7 @@ public abstract class EnemyScript : MonoBehaviour
     public int CreditCost;
     public GameObject bullet;
     public Transform firePoint;
-   
+    
     public float bulletSpeed = 35f;
     public float baseShootingTimer;
     

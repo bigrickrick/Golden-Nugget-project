@@ -8,9 +8,9 @@ public class ShotGun : Gun
     public Transform[] firePoints;       
     
     public int pelletsPerShot = 1;
-    public int GunDamage = 10;
+    
 
-    private float DefaultShootingSpeed;
+   
     public override void shoot()
     {
         for (int i = 0; i < pelletsPerShot; i++)
