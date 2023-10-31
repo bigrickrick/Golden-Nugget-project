@@ -11,7 +11,11 @@ public class GunInventory : MonoBehaviour
     
     private void Update()
     {
-        MakeGunAppearInPlayerHand();
+        if(gunlist.Count > 0)
+        {
+            MakeGunAppearInPlayerHand();
+        }
+       
     }
     public void WeaponSwitch(int number)
     {

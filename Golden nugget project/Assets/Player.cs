@@ -67,7 +67,15 @@ public class Player : MonoBehaviour
 
     private void GameInput_OnShoot(object sender, EventArgs e)
     {
-        IsShooting = true;
+        if(gunInventory.gunlist.Count > 0)
+        {
+            IsShooting = true;
+        }
+        else
+        {
+            Debug.Log("you do not have a gun to shoot with it");
+        }
+        
        
 
     }
