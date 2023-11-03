@@ -8,6 +8,6 @@ public class Speedbuff : Augments
     public float SpeedAmount;
     public override void Apply(Entity target)
     {
-        target.EntitySpeed += SpeedAmount;
+        target.EntitySpeed = target.EntitySpeed*SpeedAmount;
     }
 }

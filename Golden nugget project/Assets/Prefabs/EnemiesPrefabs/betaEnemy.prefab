@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 3282871310561135159}
   - component: {fileID: 3389149133352559469}
   - component: {fileID: 2251855122626637307}
+  - component: {fileID: 2643762418298672256}
   m_Layer: 0
   m_Name: EnemyHpBarUI
   m_TagString: Untagged
@@ -223,7 +224,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyhpBar: {fileID: 8880989312196596218}
-  enemy: {fileID: 954028222308684133}
+  enemy: {fileID: 4617174061070491540}
+--- !u!114 &2643762418298672256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623838989181787427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d2e2a176c357847859484cc549dfbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5321466299693270932
 GameObject:
   m_ObjectHideFlags: 0

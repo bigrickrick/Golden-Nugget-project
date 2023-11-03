@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0ecb2d671c1f1d488858c1e1f3441e8, type: 3}
-  m_Name: Speedbuff III
+  m_Script: {fileID: 11500000, guid: 3e45564379414f44285f25120bdda066, type: 3}
+  m_Name: AssaultRifle
   m_EditorClassIdentifier: 
   isApplied: 0
-  AugmentName: Speedbuff III
-  SpeedAmount: 1.15
+  AugmentName: Assault Rifle
+  gun: {fileID: 7488794201986784699, guid: 1d162793e54a16e44afba74dd775788c, type: 3}

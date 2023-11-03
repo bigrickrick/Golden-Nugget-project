@@ -2002,6 +2002,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3da38814e04a6f441af1408747e02afe, type: 2}
   - {fileID: 11400000, guid: 986ae94d1e824ac4e89b6661b098e1f0, type: 2}
   - {fileID: 11400000, guid: 68618fca8fa21ed47baa688eb50310cd, type: 2}
+  - {fileID: 11400000, guid: 001abc991f8562c4b916fccc1f9c9140, type: 2}
+  - {fileID: 11400000, guid: b1bc3b79a386b944c8362d4cae252166, type: 2}
   choices:
   - {fileID: 423318846}
   - {fileID: 1113761671}
@@ -3164,6 +3166,7 @@ GameObject:
   - component: {fileID: 1710094870}
   - component: {fileID: 1710094871}
   - component: {fileID: 1710094872}
+  - component: {fileID: 1710094873}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3211,6 +3214,7 @@ MonoBehaviour:
   PlayerPosition: {fileID: 884327058}
   isPaused: 0
   pauseMenuCanvas: {fileID: 1262307687}
+  movementAbility: {fileID: 11400000, guid: 553cc85233e573d4ebe1485dea6b6ee2, type: 2}
 --- !u!54 &1710094870
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3278,6 +3282,24 @@ MonoBehaviour:
   entity: {fileID: 1710094867}
   EntitySpeed: 15
   attackspeedModifier: 1
+--- !u!114 &1710094873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710094867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f85679a4240e041bbb660084b12eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 2
+  basecooldown: 2
+  Duration: 0.5
+  dashSpeed: 4
+  isDashing: 0
+  OriginalSpeed: 15
 --- !u!1 &1772238301
 GameObject:
   m_ObjectHideFlags: 0

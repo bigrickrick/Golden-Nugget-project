@@ -9,9 +9,9 @@ public class CombatDirectory : MonoBehaviour
     private System.Random randomCoordonateForSpawn = new System.Random();
     public Transform spawnPoint;
     private bool IsSpawntimerRunning;
-    private float timer = 10;
+    private float timer = 0;
     private int difficultyScaler = 1;
-    private float timebetweenspawn = 0.5f;
+    private float timebetweenspawn = 1f;
     
     //this will be the list of enemies that the GameDirectory can spawn
     [SerializeField] private EnemyScript[] EnemyList;
@@ -38,7 +38,7 @@ public class CombatDirectory : MonoBehaviour
             if(timebetweenspawn <= 0)
             {
                 SpawnEnemy();
-                timebetweenspawn = 0.2f;
+                timebetweenspawn = 2f;
             }
             
            
@@ -58,17 +58,17 @@ public class CombatDirectory : MonoBehaviour
             //Debug.Log("time before next spawn " +timer);
             if (timer <= 0)
             {
-                int creditGain = 100 + difficultyScaler * 20;
+                int creditGain = 50 + difficultyScaler * 20;
                 Credit = creditGain;
                 IsSpawntimerRunning = false;
-                timer = 10;
+                timer = 60;
                 difficultyScaler += 1;
             }
         }
     }
     private void Start()
     {
-        Credit = 100;
+        Credit = 50;
     }
 
     public int GenerateRandomEnemyNumber()

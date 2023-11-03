@@ -5,26 +5,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private float timebetweenAugments = 0;
-    private float timebetweenNewGuns = 20;
+
     [SerializeField] private GameObject augmentUi;
     [SerializeField] private List<WeaponPickUp> weaponlist;
     
     private void Update()
     {
         timebetweenAugments -= Time.deltaTime;
-        timebetweenNewGuns -= Time.deltaTime;
-        Debug.Log("timebetweenNewGuns " + timebetweenNewGuns);
+        
+        
         if(timebetweenAugments <= 0)
         {
             augmentUi.SetActive(true);
             augmentUi.GetComponent<AugmentManager>().CreateChoice();
-            timebetweenAugments = 10;
+            timebetweenAugments = 60;
         }
-        if(timebetweenNewGuns <= 0)
-        {
-            SummonGun();
-            timebetweenNewGuns = 120;
-        }
+        
     }
     private void SummonGun()
     {

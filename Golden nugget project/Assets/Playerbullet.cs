@@ -18,5 +18,10 @@ public class Playerbullet : Bullet
                 Debug.Log("enemy has recieve damage");
             }
         }
+        if (collision.gameObject.CompareTag("Enemy bullet"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

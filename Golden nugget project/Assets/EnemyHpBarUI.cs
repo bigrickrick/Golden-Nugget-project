@@ -5,10 +5,24 @@ using UnityEngine.UI;
 public class EnemyHpBarUI : MonoBehaviour
 {
     [SerializeField] Image EnemyhpBar;
-    [SerializeField] EnemyScript enemy;
-
+    [SerializeField] Entity enemy;
+    
+    
     private void Update()
     {
-        EnemyhpBar.fillAmount = enemy.GetComponent<Entity>().HealthPoints;
+        
+        UpdateHpbar();
+        
+    }
+    private void UpdateHpbar()
+    {
+        if (enemy != null && EnemyhpBar != null)
+        {
+            float healthPercentage = (float)enemy.HealthPoints / (float)enemy.maxHealthPoints;
+            Debug.Log("Health Percentage: " + healthPercentage); 
+            EnemyhpBar.fillAmount = healthPercentage;
+            Debug.Log(EnemyhpBar.fillAmount);
+        }
+
     }
 }

@@ -15,8 +15,8 @@ public class GunInventory : MonoBehaviour
         {
             MakeGunAppearInPlayerHand();
         }
-       
     }
+
     public void WeaponSwitch(int number)
     {
         gunNumer += number;

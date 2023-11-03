@@ -31,9 +31,16 @@ public class AugmentManager : MonoBehaviour
             if (choices[choiceIndex].GetComponentInChildren<TMP_Text>().text == augments.AugmentName)
             {
                 augments.Apply(Player.Instance.GetComponent<Entity>());
+                if(augments is AddGunAugment)
+                {
+                    augmentsList.Remove(augments);
+                }
+
+                gameObject.SetActive(false);
+                return;
             }
         }
-        gameObject.SetActive(false);
+        
 
         
     }

@@ -26,13 +26,28 @@ public class Player : MonoBehaviour
     private float timebetweenshoots = 0;
     public bool isPaused;
     public GameObject pauseMenuCanvas;
+    public ActiveMovementAbility movementAbility;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
         gameInput.OnWeaponChanged += GameInput_OnWeaponChanged;
         gameInput.OnStopShoot += GameInput_OnStopShoot;
         gameInput.OnPause += GameInput_OnPause;
+        gameInput.OnMovementAbility += GameInput_OnMovementAbility;
         isPaused = false;
+    }
+
+    private void GameInput_OnMovementAbility(object sender, EventArgs e)
+    {
+        if (movementAbility!= null)
+        {
+            movementAbility.Activate();
+        }
+        else
+        {
+            Debug.Log("you do not have a movement ability");
+        }
+        
     }
 
     private void GameInput_OnPause(object sender, EventArgs e)
@@ -112,7 +127,7 @@ public class Player : MonoBehaviour
             timebetweenshoots -= Time.deltaTime;
             Debug.Log("shooting speed " + timebetweenshoots);
         }
-
+        movementAbility.cooldown -= Time.deltaTime;
        
 
     }

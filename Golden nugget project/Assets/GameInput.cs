@@ -13,6 +13,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnStopShoot;
     public event EventHandler OnWeaponChanged;
     public event EventHandler OnPause;
+    public event EventHandler OnMovementAbility;
     private PlayerInputAction playerInputAction;
     private void Awake()
     {
@@ -25,7 +26,13 @@ public class GameInput : MonoBehaviour
         playerInputAction.Player.Shoot.canceled += Shoot_canceled;
         playerInputAction.Player.ChangeWeapon.performed += ChangeWeapon_performed;
         playerInputAction.Player.Pause.performed += Pause_performed;
+        playerInputAction.Player.Movementability.performed += Movementability_performed;
        
+    }
+
+    private void Movementability_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnMovementAbility?.Invoke(this, EventArgs.Empty);
     }
 
     private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
