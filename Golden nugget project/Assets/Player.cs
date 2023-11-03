@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
     private float timebetweenshoots = 0;
     public bool isPaused;
     public GameObject pauseMenuCanvas;
-    public ActiveMovementAbility movementAbility;
+    public DashAbility dash;
+    public List<ActiveMovementAbility> movementAbilities;
+    private ActiveMovementAbility currentMovementability;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
@@ -39,9 +41,9 @@ public class Player : MonoBehaviour
 
     private void GameInput_OnMovementAbility(object sender, EventArgs e)
     {
-        if (movementAbility!= null)
+        if (currentMovementability!= null)
         {
-            movementAbility.Activate();
+            currentMovementability.Activate();
         }
         else
         {

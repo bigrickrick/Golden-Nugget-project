@@ -6,7 +6,7 @@ public class DashAbility : ActiveMovementAbility
 {
     public float dashSpeed;
     public bool isDashing;
-    public float OriginalSpeed;
+    private float OriginalSpeed;
     public override void Activate()
     {
         basecooldown = cooldown;
