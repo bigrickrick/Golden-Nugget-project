@@ -2,30 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class DashAbility : ActiveMovementAbility
 {
-    public float dashSpeed;
-    public bool isDashing;
-    private float OriginalSpeed;
+    public float DashSpeed;
+    
     public override void Activate()
     {
-        basecooldown = cooldown;
-        if (!isDashing || cooldown !<=0 )
-        {
-            
-            OriginalSpeed = Player.Instance.GetComponent<Entity>().EntitySpeed;
-            isDashing = true;
-            if (Duration !<= 0)
-            {
-                Player.Instance.GetComponent<Entity>().EntitySpeed = Player.Instance.GetComponent<Entity>().EntitySpeed * dashSpeed;
-            }
-            Duration -= Time.deltaTime;
-            cooldown = basecooldown;
-           
-        }
-        
+        Player.Instance.GetComponent<Entity>().EntitySpeed = Player.Instance.GetComponent<Entity>().EntitySpeed * DashSpeed;
+
+        Debug.Log("dash duration " + Duration);
 
     }
-    
 
 }

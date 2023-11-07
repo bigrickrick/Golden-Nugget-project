@@ -211,6 +211,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &72245347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72245348}
+  - component: {fileID: 72245349}
+  m_Layer: 0
+  m_Name: AbilityHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72245348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72245347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710094868}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72245349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72245347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c900762dba8a8a8409ee2e556d4c5ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentmovementAbility: {fileID: 11400000, guid: 0567951c163da8a42a7c138a979ddf9f, type: 2}
 --- !u!1 &81228863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,6 +3235,7 @@ Transform:
   - {fileID: 641467679}
   - {fileID: 81228864}
   - {fileID: 884327058}
+  - {fileID: 72245348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1710094869
@@ -3214,7 +3260,7 @@ MonoBehaviour:
   PlayerPosition: {fileID: 884327058}
   isPaused: 0
   pauseMenuCanvas: {fileID: 1262307687}
-  movementAbility: {fileID: 11400000, guid: 553cc85233e573d4ebe1485dea6b6ee2, type: 2}
+  movementAbility: {fileID: 72245349}
 --- !u!54 &1710094870
 Rigidbody:
   m_ObjectHideFlags: 0
