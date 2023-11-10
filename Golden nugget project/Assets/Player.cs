@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private float timebetweenshoots = 0;
     public bool isPaused;
     public GameObject pauseMenuCanvas;
-
+    public bool MovementAbilistyIsActivated;
 
     [SerializeField] MovementAbilityHolder movementAbility;
     private void Start()
@@ -36,14 +36,23 @@ public class Player : MonoBehaviour
         gameInput.OnStopShoot += GameInput_OnStopShoot;
         gameInput.OnPause += GameInput_OnPause;
         gameInput.OnMovementAbility += GameInput_OnMovementAbility;
+        gameInput.OnMovementAbilityStop += GameInput_OnMovementAbilityStop;
         isPaused = false;
+    }
+
+    private void GameInput_OnMovementAbilityStop(object sender, EventArgs e)
+    {
+        if(movementAbility.currentAbility != null)
+        {
+            MovementAbilistyIsActivated = false;
+        }
     }
 
     private void GameInput_OnMovementAbility(object sender, EventArgs e)
     {
-        if (movementAbility.currentmovementAbility!= null)
+        if (movementAbility.currentAbility!= null)
         {
-            movementAbility.UpdateAbility();
+            MovementAbilistyIsActivated = true;
         }
         else
         {
@@ -129,6 +138,7 @@ public class Player : MonoBehaviour
             timebetweenshoots -= Time.deltaTime;
             Debug.Log("shooting speed " + timebetweenshoots);
         }
+        
         
        
 

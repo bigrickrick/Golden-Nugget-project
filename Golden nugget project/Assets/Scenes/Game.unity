@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c900762dba8a8a8409ee2e556d4c5ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentmovementAbility: {fileID: 11400000, guid: 0567951c163da8a42a7c138a979ddf9f, type: 2}
+  currentAbility: {fileID: 11400000, guid: 0567951c163da8a42a7c138a979ddf9f, type: 2}
 --- !u!1 &81228863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3260,7 @@ MonoBehaviour:
   PlayerPosition: {fileID: 884327058}
   isPaused: 0
   pauseMenuCanvas: {fileID: 1262307687}
+  MovementAbilistyIsActivated: 0
   movementAbility: {fileID: 72245349}
 --- !u!54 &1710094870
 Rigidbody:

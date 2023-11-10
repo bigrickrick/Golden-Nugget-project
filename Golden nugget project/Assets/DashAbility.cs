@@ -9,7 +9,8 @@ public class DashAbility : ActiveMovementAbility
     
     public override void Activate()
     {
-        Player.Instance.GetComponent<Entity>().EntitySpeed = Player.Instance.GetComponent<Entity>().EntitySpeed * DashSpeed;
+        
+        Player.Instance.GetComponent<Entity>().EntitySpeed = Player.Instance.GetComponent<Entity>().EntitySpeed + DashSpeed;
 
         Debug.Log("dash duration " + Duration);
 

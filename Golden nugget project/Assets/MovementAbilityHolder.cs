@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementAbilityHolder : MonoBehaviour
+public class MovementAbilityHolder : AbilityHolder
 {
-    public ActiveMovementAbility currentmovementAbility;
-    float cooldowntime;
-    float activeTime;
-    float DurationTime;
+    
     
     enum AbilityState
     {
@@ -16,25 +13,25 @@ public class MovementAbilityHolder : MonoBehaviour
         cooldown
     }
     AbilityState state = AbilityState.ready;
-
-    public void UpdateAbility()
+    
+    
+    private void Update()
     {
+        
         switch (state)
         {
+            
             case AbilityState.ready:
-                currentmovementAbility.SaveOriginalspeed();
-                DurationTime = currentmovementAbility.Duration;
-                if(DurationTime > 0)
-                {
-                    currentmovementAbility.Activate();
-                    state = AbilityState.active;
-                    activeTime = currentmovementAbility.ActiveTime;
-                }
-                else
-                {
-                    currentmovementAbility.SetOriginalSpeedback();
-                }
+
                 
+                currentAbility.SaveState();
+                DurationTime = currentAbility.Duration;
+                if(Player.Instance.MovementAbilistyIsActivated == true)
+                {
+                    state = AbilityState.active;
+                    activeTime = currentAbility.ActiveTime;
+                }
+                                
             break;
             case AbilityState.active:
                 if (activeTime > 0)
@@ -43,9 +40,25 @@ public class MovementAbilityHolder : MonoBehaviour
                 }
                 else
                 {
-                    state = AbilityState.cooldown;
-                    cooldowntime = currentmovementAbility.cooldown;
+                    if (DurationTime > 0)
+                    {
+                        currentAbility.Activate();
+                        currentAbility.ParticleCreatorAndDeleter(true);
+                        state = AbilityState.active;
+                        activeTime = currentAbility.ActiveTime;
+                        DurationTime -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        currentAbility.SetStateBack();
+                        currentAbility.ParticleCreatorAndDeleter(false);
+                        cooldowntime = currentAbility.cooldown;
+                        state = AbilityState.cooldown;
+
+                    }
                 }
+               
+                
             break;
             case AbilityState.cooldown:
                 if (cooldowntime > 0)
@@ -59,5 +72,8 @@ public class MovementAbilityHolder : MonoBehaviour
                 }
             break;
         }
+        
+
     }
+    
 }
