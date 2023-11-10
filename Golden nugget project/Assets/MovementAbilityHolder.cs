@@ -13,8 +13,14 @@ public class MovementAbilityHolder : AbilityHolder
         cooldown
     }
     AbilityState state = AbilityState.ready;
-    
-    
+    IEnumerator StopParticle()
+    {
+        yield return new WaitForSeconds(0.15f);
+        currentAbility.ParticleCreatorAndDeleter(false);
+
+    }
+
+
     private void Update()
     {
         
@@ -42,8 +48,8 @@ public class MovementAbilityHolder : AbilityHolder
                 {
                     if (DurationTime > 0)
                     {
-                        currentAbility.Activate();
                         currentAbility.ParticleCreatorAndDeleter(true);
+                        currentAbility.Activate();
                         state = AbilityState.active;
                         activeTime = currentAbility.ActiveTime;
                         DurationTime -= Time.deltaTime;
@@ -51,7 +57,7 @@ public class MovementAbilityHolder : AbilityHolder
                     else
                     {
                         currentAbility.SetStateBack();
-                        currentAbility.ParticleCreatorAndDeleter(false);
+                        StartCoroutine(StopParticle());
                         cooldowntime = currentAbility.cooldown;
                         state = AbilityState.cooldown;
 
@@ -61,6 +67,7 @@ public class MovementAbilityHolder : AbilityHolder
                 
             break;
             case AbilityState.cooldown:
+                
                 if (cooldowntime > 0)
                 {
                     cooldowntime -= Time.deltaTime;
