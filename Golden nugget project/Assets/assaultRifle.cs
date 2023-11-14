@@ -16,6 +16,7 @@ public class assaultRifle : Gun
 
 
         rb.velocity = shootingDirection * bulletSpeed;
+        PLayGunSound();
 
     }
     public GameObject bullet;

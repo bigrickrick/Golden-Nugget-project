@@ -29,7 +29,9 @@ public class ShotGun : Gun
 
                 rb.velocity = randomDirection * bulletSpeed;
             }
+
         }
+        PLayGunSound();
 
 
     }

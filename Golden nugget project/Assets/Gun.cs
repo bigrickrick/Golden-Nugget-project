@@ -6,6 +6,11 @@ public abstract class Gun : MonoBehaviour
 {
 
     public abstract void shoot();
+    public void PLayGunSound()
+    {
+        gunshotSound.Play();
+    }
+    public AudioSource gunshotSound;
     public bool HasWeapon;
     public float ShootingSpeed;
     public float BaseShootingSpeed;
