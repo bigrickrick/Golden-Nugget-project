@@ -31,7 +31,7 @@ public class ShotGun : Gun
             }
 
         }
-        PLayGunSound();
+        
 
 
     }

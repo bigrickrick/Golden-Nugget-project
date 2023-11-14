@@ -17,4 +17,4 @@ MonoBehaviour:
   Duration: 0.1
   ActiveTime: 0
   particle: {fileID: 1505502165548171982, guid: 12d9bf5aa92c13841abb9eec36b81afd, type: 3}
-  DashSpeed: 10
+  DashSpeed: 15

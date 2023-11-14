@@ -24,7 +24,7 @@ public class Pistol : Gun
 
 
         rb.velocity = shootingDirection * bulletSpeed;
-        PLayGunSound();
+        
         
     }
 }

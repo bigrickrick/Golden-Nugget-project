@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6901596691729893680}
   - component: {fileID: 2497258370920649695}
-  - component: {fileID: 1674050154849357295}
+  - component: {fileID: 6365264131336628921}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56740954989f1794dba8e731e79459f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunshotSound: {fileID: 1674050154849357295}
+  gunshotSound: {fileID: 6365264131336628921}
   HasWeapon: 1
   ShootingSpeed: 0.5
   BaseShootingSpeed: 0.5
@@ -87,7 +87,7 @@ MonoBehaviour:
   GunDamage: 10
   bullet: {fileID: 6439983250298250649, guid: a56a3ac16aa55d14ca16408fe3b983e7, type: 3}
   firePoint: {fileID: 3654408261335706385}
---- !u!82 &1674050154849357295
+--- !u!82 &6365264131336628921
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e4e0f69a00a24194194e73e69acac4c2, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -106,11 +106,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 1.27
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

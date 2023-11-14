@@ -26,7 +26,8 @@ public abstract class ActiveMovementAbility : ActiveAbility
         }
         else if (yORn == false)
         {
-            particleInstance.GetComponent<ParticleSystem>().Pause();
+            particleInstance.GetComponent<ParticleSystem>().Stop();
+            particleInstance.GetComponent<ParticleSystem>().Clear();
             Debug.Log("Stopping particles!");
            
         }

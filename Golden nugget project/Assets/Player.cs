@@ -129,6 +129,7 @@ public class Player : MonoBehaviour
             if (timebetweenshoots <= 0)
             {
                 gunInventory.currentGunUsed.shoot();
+                gunInventory.currentGunUsed.PLayGunSound();
                 timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed/Instance.GetComponent<Entity>().attackspeedModifier;
             }
            

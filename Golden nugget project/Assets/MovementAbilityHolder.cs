@@ -34,6 +34,7 @@ public class MovementAbilityHolder : AbilityHolder
                 DurationTime = currentAbility.Duration;
                 if(Player.Instance.MovementAbilistyIsActivated == true)
                 {
+                    currentAbility.ParticleCreatorAndDeleter(true);
                     state = AbilityState.active;
                     activeTime = currentAbility.ActiveTime;
                 }
@@ -48,7 +49,7 @@ public class MovementAbilityHolder : AbilityHolder
                 {
                     if (DurationTime > 0)
                     {
-                        currentAbility.ParticleCreatorAndDeleter(true);
+                        
                         currentAbility.Activate();
                         state = AbilityState.active;
                         activeTime = currentAbility.ActiveTime;
