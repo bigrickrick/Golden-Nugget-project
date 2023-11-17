@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56740954989f1794dba8e731e79459f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunshotSound: {fileID: 6365264131336628921}
-  HasWeapon: 1
+  GunshotSound: {fileID: 8300000, guid: e4e0f69a00a24194194e73e69acac4c2, type: 3}
+  HasWeapon: 0
   ShootingSpeed: 0.5
   BaseShootingSpeed: 0.5
   bulletSpeed: 60

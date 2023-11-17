@@ -7,13 +7,18 @@ public class GunInventory : MonoBehaviour
     public List<Gun> gunlist = new List<Gun>();
     public Gun currentGunUsed;
     private int gunNumer = 0;
-
+    public bool HasGunInHand;
     
     private void Update()
     {
         if(gunlist.Count > 0)
         {
-            MakeGunAppearInPlayerHand();
+            if (!HasGunInHand)
+            {
+                MakeGunAppearInPlayerHand();
+                HasGunInHand = true;
+            }
+            
         }
     }
 
@@ -21,7 +26,7 @@ public class GunInventory : MonoBehaviour
     {
         gunNumer += number;
 
-        
+        HasGunInHand = false;
         if (gunNumer >= gunlist.Count)
         {
             gunNumer = 0;
@@ -30,6 +35,7 @@ public class GunInventory : MonoBehaviour
         {
             gunNumer = gunlist.Count - 1;
         }
+        
     }
 
     private void MakeGunAppearInPlayerHand()
@@ -38,8 +44,11 @@ public class GunInventory : MonoBehaviour
         {
             if (currentGunUsed != null)
             {
+
                 currentGunUsed.gameObject.SetActive(false);
+                
                 currentGunUsed.HasWeapon = false;
+                Destroy(currentGunUsed.gameObject);
             }
 
             currentGunUsed = gunlist[gunNumer];

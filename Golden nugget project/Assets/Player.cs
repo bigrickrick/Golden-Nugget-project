@@ -16,9 +16,7 @@ public class Player : MonoBehaviour
     
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask counterLayerMask;
-    private Transform mouse;
     public MouseLook mousePosition;
-    [SerializeField] private Bullet Playerbullet;
     public GunInventory gunInventory;
     public Transform PlayerPosition;
     private bool IsShooting;
@@ -27,8 +25,8 @@ public class Player : MonoBehaviour
     public bool isPaused;
     public GameObject pauseMenuCanvas;
     public bool MovementAbilistyIsActivated;
-
-    [SerializeField] MovementAbilityHolder movementAbility;
+    public MovementAbilityHolder movementAbility;
+    private bool EnemyDied = false;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
@@ -39,7 +37,14 @@ public class Player : MonoBehaviour
         gameInput.OnMovementAbilityStop += GameInput_OnMovementAbilityStop;
         isPaused = false;
     }
-
+    public bool EnemyHasdied()
+    {
+        return EnemyDied;
+    }
+    public void HasEnemyHasdied(bool yesOrno)
+    {
+        EnemyDied = yesOrno;
+    }
     private void GameInput_OnMovementAbilityStop(object sender, EventArgs e)
     {
         if(movementAbility.currentAbility != null)

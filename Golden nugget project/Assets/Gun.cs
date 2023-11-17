@@ -8,17 +8,18 @@ public abstract class Gun : MonoBehaviour
     public abstract void shoot();
     public void PLayGunSound()
     {
+        if (GunshotSound != null)
+        {
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = GunshotSound;
+            audioSource.Play();
+            Destroy(audioSource, GunshotSound.length + 0.1f);
+        }
+    }
 
-        gunshotSound.Play();
-        Debug.Log("Sound gun played");
-    }
+   
     
-    public void Start()
-    {
-        gunshotSound = GetComponent<AudioSource>();
-    }
-    
-    public AudioSource gunshotSound;
+    public AudioClip GunshotSound;
     
     public bool HasWeapon;
     public float ShootingSpeed;

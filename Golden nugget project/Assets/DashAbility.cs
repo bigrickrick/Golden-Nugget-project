@@ -11,9 +11,6 @@ public class DashAbility : ActiveMovementAbility
     {
         
         Player.Instance.GetComponent<Entity>().EntitySpeed = Player.Instance.GetComponent<Entity>().EntitySpeed + DashSpeed;
-
-        Debug.Log("dash duration " + Duration);
-
     }
 
 }

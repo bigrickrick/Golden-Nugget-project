@@ -35,6 +35,10 @@ public class AugmentManager : MonoBehaviour
                 {
                     augmentsList.Remove(augments);
                 }
+                if(augments is SetAbility)
+                {
+                    augmentsList.Remove(augments);
+                }
 
                 gameObject.SetActive(false);
                 return;

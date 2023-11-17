@@ -78,8 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8026872c9f66cd54b932130b148f4961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipLength: 1
-  gunshotSound: {fileID: -2415239914377366838}
+  GunshotSound: {fileID: 8300000, guid: e4e0f69a00a24194194e73e69acac4c2, type: 3}
   HasWeapon: 1
   ShootingSpeed: 0.8
   BaseShootingSpeed: 0.8

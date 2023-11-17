@@ -27,5 +27,18 @@ public abstract class EnemyScript : MonoBehaviour
     public abstract void EnemyShoot();
     public abstract void EnemyLookAtPlayer();
 
+    private void Update()
+    {
+        if (gameObject != null)
+        {
+            if (gameObject.GetComponent<Entity>().HealthPoints <= 0)
+            {
+                Player.Instance.HasEnemyHasdied(true);
+
+            }
+        }
+       
+    }
+
 
 }
