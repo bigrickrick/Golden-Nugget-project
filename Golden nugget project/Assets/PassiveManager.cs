@@ -46,9 +46,14 @@ public class PassiveManager : MonoBehaviour
                         break;
                     case PassiveState.cooldown:
                         passive.SetToOriginalState();
-                        
+                        Player.Instance.HasEnemyHasdied(false);
+                        state = PassiveState.ready;
                         break;
                 }
+            }
+            else if (type == PassiveAugments.PassiveType.OnHit)
+            {
+                
             }
            
             

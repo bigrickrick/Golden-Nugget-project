@@ -17,7 +17,7 @@ public class BerserkPassive : PassiveAugments
         originalattackspeed = Player.Instance.GetComponent<Entity>().attackspeedModifier;
         OriginalMovementSpeed = Player.Instance.GetComponent<Entity>().EntitySpeed;
         BerserkAttackSpeedBonus += 0.5f;
-        BerserkMovementSpeedBonus += 0.5f;
+        BerserkMovementSpeedBonus += 3f;
         Player.Instance.GetComponent<Entity>().attackspeedModifier += BerserkAttackSpeedBonus;
         Player.Instance.GetComponent<Entity>().EntitySpeed += BerserkMovementSpeedBonus;
         

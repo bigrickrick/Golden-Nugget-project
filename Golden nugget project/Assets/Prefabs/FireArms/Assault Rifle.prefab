@@ -84,7 +84,7 @@ MonoBehaviour:
   BaseShootingSpeed: 0.2
   bulletSpeed: 60
   GunSprite: {fileID: 21300000, guid: c9ef79ba59db38f40bd698e29162563d, type: 3}
-  GunDamage: 6
+  GunDamage: 5
   bullet: {fileID: 6439983250298250649, guid: a56a3ac16aa55d14ca16408fe3b983e7, type: 3}
   firePoint: {fileID: 6219928835540580239}
 --- !u!82 &4430790453604247710
