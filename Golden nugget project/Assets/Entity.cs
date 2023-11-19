@@ -28,6 +28,15 @@ public class Entity : MonoBehaviour
         if (HealthPoints <= 0)
         {
             Destroy(entity);
+            foreach(PassiveAugments passive in Player.Instance.GetComponentInChildren<PassiveManager>().passiveAugmentslist)
+            {
+                PassiveAugments.PassiveType type = passive.GetPassiveType();
+                if (type == PassiveAugments.PassiveType.OnKill)
+                {
+                    Player.Instance.HasEnemyHasdied(true);
+                }
+            }
+            
         }
     }
 

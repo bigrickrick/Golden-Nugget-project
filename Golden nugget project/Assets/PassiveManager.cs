@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PassiveManager : MonoBehaviour
 {
-    [SerializeField] private List<PassiveAugments> passiveAugmentslist;
+    public List<PassiveAugments> passiveAugmentslist;
     float DurationTime;
     enum PassiveState
     {
@@ -16,6 +16,7 @@ public class PassiveManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("has died " + Player.Instance.EnemyHasdied());
         foreach(PassiveAugments passive in passiveAugmentslist)
         {
             PassiveAugments.PassiveType type = passive.GetPassiveType();
@@ -27,13 +28,15 @@ public class PassiveManager : MonoBehaviour
                         DurationTime = passive.Duration;
                         if (Player.Instance.EnemyHasdied()== true)
                         {
+                            passive.ActivatePassive();
                             state = PassiveState.active;
                         }
                         break;
                     case PassiveState.active:
+                        
                         if (DurationTime > 0)
                         {
-                            passive.ActivatePassive();
+                            Debug.Log("Buff is activated");
                             DurationTime -= Time.deltaTime;
                         }
                         else
@@ -43,7 +46,7 @@ public class PassiveManager : MonoBehaviour
                         break;
                     case PassiveState.cooldown:
                         passive.SetToOriginalState();
-                        Player.Instance.HasEnemyHasdied(false);
+                        
                         break;
                 }
             }
