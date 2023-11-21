@@ -24,10 +24,11 @@ public class Player : MonoBehaviour
     private float timebetweenshoots = 0;
     public bool isPaused;
     public GameObject pauseMenuCanvas;
-    public bool MovementAbilistyIsActivated;
+
     public MovementAbilityHolder movementAbility;
+    public UtilityAbilityHolder utilityAbilityHolder;
     private bool EnemyDied = false;
-    public float pickuprange = 100;
+    public float pickuprange = 10;
     [SerializeField] private ObjectHolder objectHolder;
     private void Start()
     {
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
     {
         if(movementAbility.currentAbility != null)
         {
-            MovementAbilistyIsActivated = false;
+            movementAbility.abilityActivated = false;
         }
     }
 
@@ -67,7 +68,7 @@ public class Player : MonoBehaviour
     {
         if (movementAbility.currentAbility!= null)
         {
-            MovementAbilistyIsActivated = true;
+            movementAbility.abilityActivated = true;
         }
         else
         {

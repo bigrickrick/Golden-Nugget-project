@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class MovementAbilityHolder : AbilityHolder
 {
+
+
+
     
-    
-    enum AbilityState
-    {
-        ready,
-        active,
-        cooldown
-    }
-    AbilityState state = AbilityState.ready;
     IEnumerator StopParticle()
     {
         yield return new WaitForSeconds(0.15f);
         currentAbility.ParticleCreatorAndDeleter(false);
 
     }
-
+    private int MovementAbilityCharges;
 
     private void Update()
     {
+        
         if (currentAbility != null)
         {
             switch (state)
@@ -30,12 +26,13 @@ public class MovementAbilityHolder : AbilityHolder
 
                 case AbilityState.ready:
 
-
+                    
                     currentAbility.SaveState();
                     DurationTime = currentAbility.Duration;
-                    if (Player.Instance.MovementAbilistyIsActivated == true)
+                    if (abilityActivated == true)
                     {
                         currentAbility.ParticleCreatorAndDeleter(true);
+
                         state = AbilityState.active;
                         activeTime = currentAbility.ActiveTime;
                     }
@@ -50,14 +47,16 @@ public class MovementAbilityHolder : AbilityHolder
                     {
                         if (DurationTime > 0)
                         {
-
+                            
                             currentAbility.Activate();
-                            state = AbilityState.active;
+                            
+                            
                             activeTime = currentAbility.ActiveTime;
                             DurationTime -= Time.deltaTime;
                         }
                         else
                         {
+                            MovementAbilityCharges -= 1;
                             currentAbility.SetStateBack();
                             StartCoroutine(StopParticle());
                             cooldowntime = currentAbility.cooldown;
@@ -69,16 +68,26 @@ public class MovementAbilityHolder : AbilityHolder
 
                     break;
                 case AbilityState.cooldown:
-
-                    if (cooldowntime > 0)
+                    if(MovementAbilityCharges > 0)
                     {
-                        cooldowntime -= Time.deltaTime;
+                        
+                        state = AbilityState.ready;
                     }
                     else
                     {
-                        state = AbilityState.ready;
+                        if(cooldowntime > 0)
+                        {
+                            cooldowntime -= Time.deltaTime;
+                        }
+                        else
+                        {
+                            MovementAbilityCharges = AbilityCharges;
+                            state = AbilityState.ready;
+
+                        }
 
                     }
+                    
                     break;
             }
         }

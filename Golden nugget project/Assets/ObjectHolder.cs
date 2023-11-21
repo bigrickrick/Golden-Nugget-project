@@ -61,10 +61,11 @@ public class ObjectHolder : MonoBehaviour
         {
 
             Entity enemy = collision.gameObject.GetComponent<Entity>();
-            Destroy(gameObject);
+            
             if (enemy != null)
             {
                 enemy.DamageRecieve(Object.ObjectDamaged);
+                Destroy(Object);
                 Debug.Log("enemy has recieve damage");
             }
         }
