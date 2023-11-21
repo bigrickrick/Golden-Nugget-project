@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public bool MovementAbilistyIsActivated;
     public MovementAbilityHolder movementAbility;
     private bool EnemyDied = false;
+    public float pickuprange = 100;
+    [SerializeField] private ObjectHolder objectHolder;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
@@ -35,8 +37,16 @@ public class Player : MonoBehaviour
         gameInput.OnPause += GameInput_OnPause;
         gameInput.OnMovementAbility += GameInput_OnMovementAbility;
         gameInput.OnMovementAbilityStop += GameInput_OnMovementAbilityStop;
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
         isPaused = false;
     }
+
+    private void GameInput_OnInteractAction(object sender, EventArgs e)
+    {
+        objectHolder.PickUpObject();
+
+    }
+
     public bool EnemyHasdied()
     {
         return EnemyDied;
@@ -133,9 +143,17 @@ public class Player : MonoBehaviour
             
             if (timebetweenshoots <= 0)
             {
-                gunInventory.currentGunUsed.shoot();
-                gunInventory.currentGunUsed.PLayGunSound();
-                timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed/Instance.GetComponent<Entity>().attackspeedModifier;
+                if (objectHolder.ObjectHasBeenPickedUp)
+                {
+                    objectHolder.ThrowObject();
+                }
+                else
+                {
+                    gunInventory.currentGunUsed.shoot();
+                    gunInventory.currentGunUsed.PLayGunSound();
+                    timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed / Instance.GetComponent<Entity>().attackspeedModifier;
+                }
+                
             }
            
         }

@@ -20,7 +20,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             MousePosition = raycastHit.point;
-            MousePosition.y = 0.2f;
+            MousePosition.y = 1f;
             transform.position = MousePosition;
         }
         
