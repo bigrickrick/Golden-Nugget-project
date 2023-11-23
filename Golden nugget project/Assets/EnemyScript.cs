@@ -8,7 +8,9 @@ public abstract class EnemyScript : MonoBehaviour
     // ai stuff//
     //public NavMeshAgent agent;
 
-    public Transform Target;
+    private Transform Target;
+
+    public string targetstring;
 
     public LayerMask whatisground, whatisplayer;
     
@@ -42,7 +44,7 @@ public abstract class EnemyScript : MonoBehaviour
 
     private void Awake()
     {
-        SetTarget("Player");
+        SetTarget(targetstring);
         ShootingTimer = baseShootingTimer / gameObject.GetComponent<Entity>().attackspeedModifier;
     }
     
