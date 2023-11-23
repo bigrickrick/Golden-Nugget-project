@@ -528,13 +528,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06c19612937e99468fa58fa72145f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionAngle: 45
-  detectionRange: 100
+  Target: {fileID: 0}
+  whatisground:
+    serializedVersion: 2
+    m_Bits: 8
+  whatisplayer:
+    serializedVersion: 2
+    m_Bits: 64
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 10
+  AlreadyAttacked: 0
+  Attackrange: 10
+  detectionRange: 30
+  TargetInSightRange: 0
+  TargetInAttackRange: 0
+  enemyState: 0
   CreditCost: 10
   bullet: {fileID: 5772211072083701653, guid: a4bb10925be84c142a67292c09d0625a, type: 3}
   firePoint: {fileID: 3874324343661267746}
   bulletSpeed: 35
-  baseShootingTimer: 2
+  baseShootingTimer: 1.5
   BulletSpawnPoint:
   - {fileID: 1218211260696457072}
   ShootingTimer: 2
