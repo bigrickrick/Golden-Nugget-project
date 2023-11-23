@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06c19612937e99468fa58fa72145f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  targetstring: Player
   whatisground:
     serializedVersion: 2
     m_Bits: 8
@@ -550,7 +550,6 @@ MonoBehaviour:
   baseShootingTimer: 1.5
   BulletSpawnPoint:
   - {fileID: 1218211260696457072}
-  ShootingTimer: 2
 --- !u!1 &7643449514355080271
 GameObject:
   m_ObjectHideFlags: 0

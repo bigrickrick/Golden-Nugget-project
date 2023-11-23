@@ -10,13 +10,13 @@ public class MinionEnemy : EnemyScript
         Vector3 direction = Target.position - transform.position;
         direction.Normalize();
 
-
+        
         transform.Translate(direction * gameObject.GetComponent<Entity>().EntitySpeed * Time.deltaTime);
         EnemyLookAtTarget();
     }
     public override void EnemyLookAtTarget()
     {
-        transform.LookAt(Target.position);
+        transform.LookAt(Target);
     }
     public override void EnemyAttack()
     {
@@ -26,7 +26,7 @@ public class MinionEnemy : EnemyScript
         GameObject bul = Instantiate(bullet, firePoint.position, Quaternion.identity);
 
 
-        Vector3 shootingDirection = (Player.Instance.PlayerPosition.position - firePoint.position).normalized;
+        Vector3 shootingDirection = (Target.position - firePoint.position).normalized;
 
         Rigidbody rb = bul.GetComponent<Rigidbody>();
 

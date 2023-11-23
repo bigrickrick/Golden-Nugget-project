@@ -8,7 +8,7 @@ public abstract class EnemyScript : MonoBehaviour
     // ai stuff//
     //public NavMeshAgent agent;
 
-    private Transform Target;
+    protected Transform Target;
 
     public string targetstring;
 
