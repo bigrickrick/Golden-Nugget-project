@@ -29,7 +29,8 @@ public class Player : MonoBehaviour
     public UtilityAbilityHolder utilityAbilityHolder;
     private bool EnemyDied = false;
     public float pickuprange = 10;
-    [SerializeField] private ObjectHolder objectHolder;
+    public ObjectHolder objectHolder;
+    public float PushForce;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
@@ -39,7 +40,16 @@ public class Player : MonoBehaviour
         gameInput.OnMovementAbility += GameInput_OnMovementAbility;
         gameInput.OnMovementAbilityStop += GameInput_OnMovementAbilityStop;
         gameInput.OnInteractAction += GameInput_OnInteractAction;
+        gameInput.OnUtilityAbility += GameInput_OnUtilityAbility;
         isPaused = false;
+    }
+
+    private void GameInput_OnUtilityAbility(object sender, EventArgs e)
+    {
+        if (utilityAbilityHolder.currentAbility != null)
+        {
+            utilityAbilityHolder.abilityActivated = true;
+        }
     }
 
     private void GameInput_OnInteractAction(object sender, EventArgs e)
@@ -196,9 +206,28 @@ public class Player : MonoBehaviour
     {
        
         transform.LookAt(mousePosition.MousePosition);
-    }  
-    
-    
+    }
 
-    
+    void OnTriggerEnter(Collider other)
+    {
+        Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
+        if(!objectHolder.ObjectHasBeenPickedUp)
+        {
+            if (otherRigidbody != null)
+            {
+                Vector3 pushDirection = other.transform.position - transform.position;
+                pushDirection = pushDirection.normalized * PushForce;
+                pushDirection.y = 1;
+
+                Debug.Log("Pushing " + other.name + " " + pushDirection);
+
+                otherRigidbody.AddForce(pushDirection, ForceMode.Force);
+            }
+        }
+        
+        
+       
+    }
+
+
 }

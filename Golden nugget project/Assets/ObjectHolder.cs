@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectHolder : MonoBehaviour
 {
     public bool ObjectHasBeenPickedUp;
-
+    
     private PickUpItems Object;
 
     public void PickUpObject()
@@ -47,27 +47,13 @@ public class ObjectHolder : MonoBehaviour
             if (rb != null)
             {
                 Object.transform.parent = null;
-
-                float throwForce = 10f; 
+                
+                float throwForce = 10f;
+                
                 rb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
             }
             
         }
     }
-    void OnCollisionEnter(Collision collision)
-    {
-        
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-
-            Entity enemy = collision.gameObject.GetComponent<Entity>();
-            
-            if (enemy != null)
-            {
-                enemy.DamageRecieve(Object.ObjectDamaged);
-                Destroy(Object);
-                Debug.Log("enemy has recieve damage");
-            }
-        }
-    }
+    
 }

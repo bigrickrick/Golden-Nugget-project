@@ -89,6 +89,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UtilityAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""0893aa1c-02ef-4157-b228-e6e2dfc07a7b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -267,6 +276,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Movement ability"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2defc652-cac3-4d61-a1b6-6fea1abcb440"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UtilityAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +302,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_Player_Movementability = m_Player.FindAction("Movement ability", throwIfNotFound: true);
+        m_Player_UtilityAbility = m_Player.FindAction("UtilityAbility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +371,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_ChangeWeapon;
     private readonly InputAction m_Player_Movementability;
+    private readonly InputAction m_Player_UtilityAbility;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -361,6 +383,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
         public InputAction @Movementability => m_Wrapper.m_Player_Movementability;
+        public InputAction @UtilityAbility => m_Wrapper.m_Player_UtilityAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,6 +414,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Movementability.started += instance.OnMovementability;
             @Movementability.performed += instance.OnMovementability;
             @Movementability.canceled += instance.OnMovementability;
+            @UtilityAbility.started += instance.OnUtilityAbility;
+            @UtilityAbility.performed += instance.OnUtilityAbility;
+            @UtilityAbility.canceled += instance.OnUtilityAbility;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -416,6 +442,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Movementability.started -= instance.OnMovementability;
             @Movementability.performed -= instance.OnMovementability;
             @Movementability.canceled -= instance.OnMovementability;
+            @UtilityAbility.started -= instance.OnUtilityAbility;
+            @UtilityAbility.performed -= instance.OnUtilityAbility;
+            @UtilityAbility.canceled -= instance.OnUtilityAbility;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -442,5 +471,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnChangeWeapon(InputAction.CallbackContext context);
         void OnMovementability(InputAction.CallbackContext context);
+        void OnUtilityAbility(InputAction.CallbackContext context);
     }
 }

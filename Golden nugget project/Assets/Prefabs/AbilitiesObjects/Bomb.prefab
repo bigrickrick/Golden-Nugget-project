@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2456126291759997433}
   - component: {fileID: 3277240167513669716}
   - component: {fileID: 1269215911697323782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Old_timer_bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7824802840131810314}
   - component: {fileID: 5235043613128067519}
   - component: {fileID: 6244622980216066872}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: old_timer_bomb_glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,9 +175,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5566929821846536482}
-  - component: {fileID: 5232805251437556466}
   - component: {fileID: 1014399350160975396}
-  m_Layer: 0
+  - component: {fileID: 5861737791868509119}
+  - component: {fileID: 821291508295615084}
+  m_Layer: 7
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,8 +202,51 @@ Transform:
   - {fileID: 7824802840131810314}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &5232805251437556466
-MeshCollider:
+--- !u!114 &1014399350160975396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6850535611102021815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5976f695ec32f30429dc53da68a439a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomb: {fileID: 6850535611102021815}
+  bombDamage: 20
+  explosionParticles: {fileID: 2241042941818325738, guid: 35a3dee72b55dd5438f5478f1ba1f0b7, type: 3}
+  explosionRadius: 10
+--- !u!54 &5861737791868509119
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6850535611102021815}
+  serializedVersion: 4
+  m_Mass: 1.65
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &821291508295615084
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -219,19 +263,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: d6d6a960df51c5446a739eb62d37348b, type: 3}
---- !u!114 &1014399350160975396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6850535611102021815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5976f695ec32f30429dc53da68a439a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 108.212166, y: 181.51016, z: 121.44667}
+  m_Center: {x: -7.9954047, y: -5.144072, z: -3.9843318}

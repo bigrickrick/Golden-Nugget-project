@@ -32,7 +32,7 @@ public class MovementAbilityHolder : AbilityHolder
                     if (abilityActivated == true)
                     {
                         currentAbility.ParticleCreatorAndDeleter(true);
-
+                        Player.Instance.PushForce += 30;
                         state = AbilityState.active;
                         activeTime = currentAbility.ActiveTime;
                     }
@@ -45,6 +45,7 @@ public class MovementAbilityHolder : AbilityHolder
                     }
                     else
                     {
+                       
                         if (DurationTime > 0)
                         {
                             
@@ -56,6 +57,7 @@ public class MovementAbilityHolder : AbilityHolder
                         }
                         else
                         {
+                            Player.Instance.PushForce -= 30;
                             MovementAbilityCharges -= 1;
                             currentAbility.SetStateBack();
                             StartCoroutine(StopParticle());
@@ -68,6 +70,7 @@ public class MovementAbilityHolder : AbilityHolder
 
                     break;
                 case AbilityState.cooldown:
+                    
                     if(MovementAbilityCharges > 0)
                     {
                         

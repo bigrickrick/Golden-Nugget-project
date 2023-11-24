@@ -15,6 +15,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnPause;
     public event EventHandler OnMovementAbility;
     public event EventHandler OnMovementAbilityStop;
+    public event EventHandler OnUtilityAbility;
     private PlayerInputAction playerInputAction;
     private void Awake()
     {
@@ -29,7 +30,13 @@ public class GameInput : MonoBehaviour
         playerInputAction.Player.Pause.performed += Pause_performed;
         playerInputAction.Player.Movementability.performed += Movementability_performed;
         playerInputAction.Player.Movementability.canceled += Movementability_canceled;
+        playerInputAction.Player.UtilityAbility.performed += UtilityAbility_performed;
        
+    }
+
+    private void UtilityAbility_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnUtilityAbility?.Invoke(this, EventArgs.Empty);
     }
 
     private void Movementability_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)

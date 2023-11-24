@@ -15,14 +15,14 @@ Material:
   - _ALPHAPREMULTIPLY_ON
   - _EMISSION
   m_InvalidKeywords: []
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _BumpMap
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -69,7 +69,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 0.614
+    - _Glossiness: 0.485
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 3
@@ -82,5 +82,5 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 0.866688, b: 0, a: 1}
-    - _EmissionColor: {r: 1024, g: 740.4087, b: 0, a: 1}
+    - _EmissionColor: {r: 1.0917696, g: 0.7920916, b: 0.25405952, a: 1}
   m_BuildTextureStacks: []

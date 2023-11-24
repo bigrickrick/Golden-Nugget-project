@@ -5,35 +5,51 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [SerializeField] public GameObject bomb;
-    public string BombAnimation;
+    
 
     public int bombDamage;
 
-    ParticleSystem explosionParticles;
+    [SerializeField] private ParticleSystem explosionParticles;
 
     public float explosionRadius;
 
 
-    public void Explode()
+    public void Explode(Entity entity)
     {
-        
         GameObject explosion = Instantiate(explosionParticles.gameObject, bomb.transform.position, Quaternion.identity);
         explosion.GetComponent<ParticleSystem>().Play();
 
-       
-        Collider[] colliders = Physics.OverlapSphere(bomb.transform.position, explosionRadius);
+        
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
-        foreach (Collider col in colliders)
+        foreach (Collider hit in colliders)
         {
-            if (col.CompareTag("Enemy"))
+           
+            if (hit.CompareTag("Enemy"))
             {
-                col.GetComponent<Entity>().HealthPoints -= bombDamage;
+                Entity enemy = hit.GetComponent<Entity>();
+                if (enemy != null)
+                {
+
+                    enemy.DamageRecieve(bombDamage);
+                }
             }
         }
 
-        
         Destroy(bomb);
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Entity enemy = collision.gameObject.GetComponent<Entity>();
+            
+            if (enemy != null)
+            {
+                Explode(enemy);
+            }
+        }
+    }
+
 }
