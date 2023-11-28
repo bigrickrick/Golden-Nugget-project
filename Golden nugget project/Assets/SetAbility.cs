@@ -11,9 +11,9 @@ public class SetAbility : Augments
     {
         if(AbilityType == "Utility")
         {
-            
+            Player.Instance.utilityAbilityHolder.currentAbility = ability;
         }
-        else if(AbilityType == "Damage")
+        else if(AbilityType == "Ultimate")
         {
 
         }

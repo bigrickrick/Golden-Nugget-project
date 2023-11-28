@@ -7,55 +7,45 @@ public class UtilityAbilityHolder : AbilityHolder
     public int utilityAbilityCharges;
     private void Update()
     {
+        
         if (currentAbility != null)
         {
             switch (state)
             {
-
                 case AbilityState.ready:
-                    if(abilityActivated == true)
+                    if (abilityActivated)
                     {
                         state = AbilityState.active;
                     }
-                    
-
                     break;
+
                 case AbilityState.active:
-                    
                     currentAbility.Activate();
                     state = AbilityState.cooldown;
-
-
+                    DurationTime = currentAbility.Duration;
+                    cooldowntime = currentAbility.cooldown;
+                    utilityAbilityCharges--; 
                     break;
+
                 case AbilityState.cooldown:
-                    if ( utilityAbilityCharges> 0)
+                    
+                    if (cooldowntime  > 0)
                     {
-                        utilityAbilityCharges -= 1;
-                        abilityActivated = false;
-                        state = AbilityState.ready;
+                        cooldowntime -= Time.deltaTime; // Count down the cooldown timer
                     }
                     else
                     {
-                        if (cooldowntime > 0)
+                        
+                        if (utilityAbilityCharges <= 0)
                         {
-                            cooldowntime -= Time.deltaTime;
-                        }
-                        else
-                        {
-                            abilityActivated = false;
                             utilityAbilityCharges = AbilityCharges;
-                            state = AbilityState.ready;
-
                         }
-
+                        abilityActivated = false;
+                        state = AbilityState.ready;
                     }
-
                     break;
             }
         }
-
-
-
     }
 
 }

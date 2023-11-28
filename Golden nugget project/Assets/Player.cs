@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public float pickuprange = 10;
     public ObjectHolder objectHolder;
     public float PushForce;
+    public PassiveManager passiveManager;
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;

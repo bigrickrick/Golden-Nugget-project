@@ -18,11 +18,11 @@ public class ObjectHolder : MonoBehaviour
             if (col.CompareTag("Pickable"))
             {
                 
-                // Check if the object is not already picked up
+                
                 
                 if (!ObjectHasBeenPickedUp)
                 {
-                    // Pick up the object within range
+                    
                     ObjectHasBeenPickedUp = true;
                     Object = col.GetComponent<PickUpItems>();
                     Object.transform.parent = transform;

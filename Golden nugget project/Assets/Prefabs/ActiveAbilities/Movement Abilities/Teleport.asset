@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38dd46563db2cc1429962f34fd51fd71, type: 3}
-  m_Name: ThrowBomb
+  m_Script: {fileID: 11500000, guid: f7cc020a4edb12641ad5cd41ea7fa458, type: 3}
+  m_Name: Teleport
   m_EditorClassIdentifier: 
-  name: Bomb
-  cooldown: 3
-  Duration: 3
+  name: Teleport
+  cooldown: 5
+  Duration: 0.0001
   ActiveTime: 0.1
-  particle: {fileID: 0}
-  bomb: {fileID: 1014399350160975396, guid: fc8b9f7402d7da64085b432487803980, type: 3}
-  throwForce: 35
-  liftMultiplier: 0.2
+  particle: {fileID: 2241042941818325738, guid: 82cb3da40c7c2b04da26ac3d12eb0648, type: 3}

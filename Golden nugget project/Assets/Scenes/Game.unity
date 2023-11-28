@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c900762dba8a8a8409ee2e556d4c5ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAbility: {fileID: 11400000, guid: 0567951c163da8a42a7c138a979ddf9f, type: 2}
+  currentAbility: {fileID: 0}
   abilityActivated: 0
   AbilityCharges: 1
 --- !u!1 &81228863
@@ -2045,6 +2045,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 001abc991f8562c4b916fccc1f9c9140, type: 2}
   - {fileID: 11400000, guid: b1bc3b79a386b944c8362d4cae252166, type: 2}
   - {fileID: 11400000, guid: 8afcb210f28dc724a97851183dd1f398, type: 2}
+  - {fileID: 11400000, guid: f1a315b8dc68ef34081dfd57a74217dc, type: 2}
+  - {fileID: 11400000, guid: c8fdf2d35d62da54b8b3b29e240e0200, type: 2}
+  - {fileID: 11400000, guid: 7f1417b8f43d6f94488e38c6cb3a6014, type: 2}
   choices:
   - {fileID: 423318846}
   - {fileID: 1113761671}
@@ -2877,8 +2880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7809d90dba15d34bbe45bdaf8250cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveAugmentslist:
-  - {fileID: 11400000, guid: defe26730f5ee454da1e4c5679e1f596, type: 2}
+  passiveAugmentslist: []
 --- !u!1 &1512206025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,6 +3308,7 @@ MonoBehaviour:
   pickuprange: 10
   objectHolder: {fileID: 1938388297}
   PushForce: 50
+  passiveManager: {fileID: 1471636324}
 --- !u!54 &1710094870
 Rigidbody:
   m_ObjectHideFlags: 0
