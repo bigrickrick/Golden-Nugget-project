@@ -115,19 +115,13 @@ public class Player : MonoBehaviour
     private void GameInput_OnWeaponChanged(object sender, EventArgs e)
     {
         gunInventory.WeaponSwitch(1);   
-        Debug.Log("Weapon changed");
+       
     }
 
     private void GameInput_OnShoot(object sender, EventArgs e)
     {
-        if(gunInventory.gunlist.Count > 0)
-        {
-            IsShooting = true;
-        }
-        else
-        {
-            Debug.Log("you do not have a gun to shoot with it");
-        }
+        IsShooting = true;
+        
         
        
 
@@ -161,9 +155,17 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    gunInventory.currentGunUsed.shoot();
-                    gunInventory.currentGunUsed.PLayGunSound();
-                    timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed / Instance.GetComponent<Entity>().attackspeedModifier;
+                    if (gunInventory.gunlist.Count > 0)
+                    {
+                        gunInventory.currentGunUsed.shoot();
+                        gunInventory.currentGunUsed.PLayGunSound();
+                        timebetweenshoots = gunInventory.currentGunUsed.ShootingSpeed / Instance.GetComponent<Entity>().attackspeedModifier;
+                    }
+                    else
+                    {
+                        Debug.Log("you do not have a gun to shoot with it");
+                    }
+                   
                 }
                 
             }

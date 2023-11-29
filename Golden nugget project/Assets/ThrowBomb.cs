@@ -6,7 +6,7 @@ public class ThrowBomb : ActiveUtilityAbility
 {
     [SerializeField] private Bomb bomb;
     public float throwForce;
-    [SerializeField] private Transform throwPoint;
+    private Transform throwPoint;
     public float liftMultiplier = 1f;
     private Camera mainCamera;
 

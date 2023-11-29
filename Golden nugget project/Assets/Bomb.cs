@@ -13,36 +13,17 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!hasExploded)
+        if (!hasExploded && collision.gameObject.CompareTag("Enemy"))
         {
-            if (!collision.gameObject.CompareTag("Player"))
-            {
-                Explode();
-                hasExploded = true;
-            }
+            explosionParticles.GetComponent<ExplosionDamage>().setbombdamage(bombDamage);
+            GameObject explosion = Instantiate(explosionParticles.gameObject, transform.position, Quaternion.identity);
+            explosion.GetComponent<ParticleSystem>().Play();
+
             
+            Destroy(bomb);
+
+            
+            hasExploded = true;
         }
-    }
-
-    public void Explode()
-    {
-        GameObject explosion = Instantiate(explosionParticles.gameObject, transform.position, Quaternion.identity);
-        explosion.GetComponent<ParticleSystem>().Play();
-
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-
-        foreach (Collider hit in colliders)
-        {
-            if (hit.CompareTag("Enemy"))
-            {
-                Entity enemy = hit.GetComponent<Entity>();
-                if (enemy != null)
-                {
-                    enemy.DamageRecieve(bombDamage);
-                }
-            }
-        }
-
-        Destroy(bomb);
     }
 }

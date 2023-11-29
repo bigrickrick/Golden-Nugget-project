@@ -8,9 +8,9 @@ public class PickUpItems : MonoBehaviour
     public bool objectThrown;
     public int ObjectDamaged;
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(Player.Instance.objectHolder.ObjectHasBeenPickedUp == true)
+        if(objectThrown == true)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
