@@ -12,12 +12,12 @@ public class ThrowBomb : ActiveUtilityAbility
 
     public void Awake()
     {
-        mainCamera = Camera.main;
+        
         
     }
     public override void Activate()
     {
-
+        mainCamera = Camera.main;
         throwPoint = Player.Instance.transform;
         Ray ray = mainCamera.ScreenPointToRay(Player.Instance.mousePosition.MousePosition);
 

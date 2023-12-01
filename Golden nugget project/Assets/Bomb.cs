@@ -8,6 +8,7 @@ public class Bomb : MonoBehaviour
     public int bombDamage;
     [SerializeField] private ParticleSystem explosionParticles;
     public float explosionRadius;
+    public AudioClip explosionSound;
 
     private bool hasExploded = false;
 
@@ -18,8 +19,11 @@ public class Bomb : MonoBehaviour
             explosionParticles.GetComponent<ExplosionDamage>().setbombdamage(bombDamage);
             GameObject explosion = Instantiate(explosionParticles.gameObject, transform.position, Quaternion.identity);
             explosion.GetComponent<ParticleSystem>().Play();
+            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+            audioSource.clip = explosionSound;
+            audioSource.Play();
 
-            
+
             Destroy(bomb);
 
             

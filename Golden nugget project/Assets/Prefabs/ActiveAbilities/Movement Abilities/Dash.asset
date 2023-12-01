@@ -17,4 +17,5 @@ MonoBehaviour:
   Duration: 0.1
   ActiveTime: 0
   particle: {fileID: 1505502165548171982, guid: 12d9bf5aa92c13841abb9eec36b81afd, type: 3}
+  AbilitySoundEffect: {fileID: 8300000, guid: af536e328fef8cc4a95701d441746d69, type: 3}
   DashSpeed: 15

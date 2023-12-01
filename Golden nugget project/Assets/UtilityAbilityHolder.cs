@@ -21,6 +21,7 @@ public class UtilityAbilityHolder : AbilityHolder
 
                 case AbilityState.active:
                     currentAbility.Activate();
+                    currentAbility.PlaySoundEffect();
                     state = AbilityState.cooldown;
                     DurationTime = currentAbility.Duration;
                     cooldowntime = currentAbility.cooldown;
@@ -31,7 +32,7 @@ public class UtilityAbilityHolder : AbilityHolder
                     
                     if (cooldowntime  > 0)
                     {
-                        cooldowntime -= Time.deltaTime; // Count down the cooldown timer
+                        cooldowntime -= Time.deltaTime; 
                     }
                     else
                     {

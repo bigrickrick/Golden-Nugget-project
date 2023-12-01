@@ -50,7 +50,7 @@ public class MovementAbilityHolder : AbilityHolder
                         {
                             
                             currentAbility.Activate();
-                            
+                            currentAbility.PlaySoundEffect();
                             
                             activeTime = currentAbility.ActiveTime;
                             DurationTime -= Time.deltaTime;

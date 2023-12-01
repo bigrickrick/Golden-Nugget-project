@@ -9,9 +9,9 @@ public abstract class ActiveAbility : ScriptableObject
     public float Duration;
     public float ActiveTime;
     public ParticleSystem particle;
-    
+    public AudioClip AbilitySoundEffect;
 
-    
+
 
     public abstract void ParticleCreatorAndDeleter(bool yOrN);
     public virtual void Activate() { }
@@ -19,4 +19,13 @@ public abstract class ActiveAbility : ScriptableObject
     public virtual void SaveState()  { }
 
     public virtual void SetStateBack() { }
+
+    public virtual void PlaySoundEffect()
+    {
+        AudioSource audioSource = Player.Instance.GetComponent<AudioSource>();
+        audioSource.clip = AbilitySoundEffect;
+        audioSource.Play();
+
+        
+    }
 }

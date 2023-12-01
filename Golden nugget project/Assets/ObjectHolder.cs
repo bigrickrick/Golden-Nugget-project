@@ -7,7 +7,7 @@ public class ObjectHolder : MonoBehaviour
     public bool ObjectHasBeenPickedUp;
     
     private PickUpItems Object;
-
+    public AudioClip ThrowSound;
     public void PickUpObject()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, Player.Instance.pickuprange);
@@ -38,7 +38,9 @@ public class ObjectHolder : MonoBehaviour
         ObjectHasBeenPickedUp = false;
         Object.objectThrown = true;
         Debug.Log("object thrown");
-
+        AudioSource audioSource = Player.Instance.GetComponent<AudioSource>();
+        audioSource.clip = ThrowSound;
+        audioSource.Play();
         if (Object != null)
         {
             

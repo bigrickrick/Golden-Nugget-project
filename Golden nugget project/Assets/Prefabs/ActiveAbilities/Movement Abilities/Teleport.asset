@@ -17,3 +17,4 @@ MonoBehaviour:
   Duration: 0.0001
   ActiveTime: 0.1
   particle: {fileID: 2241042941818325738, guid: 82cb3da40c7c2b04da26ac3d12eb0648, type: 3}
+  AbilitySoundEffect: {fileID: 8300000, guid: 3f824a9de6d3102458fba4aa5beca804, type: 3}

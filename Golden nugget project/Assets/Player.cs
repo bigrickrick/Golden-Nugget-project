@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public ObjectHolder objectHolder;
     public float PushForce;
     public PassiveManager passiveManager;
+    
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;
@@ -211,7 +212,7 @@ public class Player : MonoBehaviour
         transform.LookAt(mousePosition.MousePosition);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
         if(!objectHolder.ObjectHasBeenPickedUp)
