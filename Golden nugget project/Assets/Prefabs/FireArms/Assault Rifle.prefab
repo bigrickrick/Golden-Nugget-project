@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a5357fd7bca59489237a78596358b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunshotSound: {fileID: 8300000, guid: 37f7a3f476b962f4bb17423eb4784c4c, type: 3}
+  GunshotSound: {fileID: 8300000, guid: fee46621cccce964f9bfd9bff70895fb, type: 3}
   HasWeapon: 1
   ShootingSpeed: 0.2
   BaseShootingSpeed: 0.2
@@ -97,7 +97,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 37f7a3f476b962f4bb17423eb4784c4c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fee46621cccce964f9bfd9bff70895fb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
