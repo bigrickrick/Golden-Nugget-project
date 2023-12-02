@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemybullet : Bullet
 {
-    public int damage;
+    private int damage;
     public override void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -21,5 +21,9 @@ public class Enemybullet : Bullet
             Destroy(gameObject);
         }
 
+    }
+    public void SetBulletDamage(int EnemyDamage)
+    {
+        damage = EnemyDamage;
     }
 }

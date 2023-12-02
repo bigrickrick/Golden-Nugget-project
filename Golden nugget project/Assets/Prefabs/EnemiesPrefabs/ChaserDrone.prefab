@@ -1370,9 +1370,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a8c5e3763b8c3a4f825c64e88aa6664, type: 3}
+--- !u!4 &3320240657111800568 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7906117785742758344, guid: 2a8c5e3763b8c3a4f825c64e88aa6664, type: 3}
+  m_PrefabInstance: {fileID: 4876256508996553520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6050667300639745329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1176486992533859841, guid: 2a8c5e3763b8c3a4f825c64e88aa6664, type: 3}
+  m_PrefabInstance: {fileID: 4876256508996553520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6243667622797627383 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1517158830303659207, guid: 2a8c5e3763b8c3a4f825c64e88aa6664, type: 3}
+  m_PrefabInstance: {fileID: 4876256508996553520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7380757318018359006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2721940920964765166, guid: 2a8c5e3763b8c3a4f825c64e88aa6664, type: 3}
+  m_PrefabInstance: {fileID: 4876256508996553520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7762192325423015800 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2887697685710056520, guid: 2a8c5e3763b8c3a4f825c64e88aa6664, type: 3}
   m_PrefabInstance: {fileID: 4876256508996553520}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7960817086101288890
@@ -1435,11 +1455,28 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.554
       objectReference: {fileID: 0}
+    - target: {fileID: 4617174061070491540, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+      propertyPath: EntitySpeed
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617174061070491540, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+      propertyPath: HealthPoints
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617174061070491540, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+      propertyPath: maxHealthPoints
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617174061070491540, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+      propertyPath: attackspeedModifier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6842954925123431761, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
       propertyPath: m_Name
       value: ChaserDrone
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 954028222308684133, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7643449514355080271, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
     m_AddedGameObjects:
@@ -1455,8 +1492,82 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2117080209680427040, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2062548611637348887}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6842954925123431761, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3292711143427948839}
+    - targetCorrespondingSourceObject: {fileID: 6842954925123431761, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2566617546397457854}
   m_SourcePrefab: {fileID: 100100000, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+--- !u!1 &3498610581656607467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6842954925123431761, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}
+  m_PrefabInstance: {fileID: 7960817086101288890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3292711143427948839
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498610581656607467}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 279a3763961b2724ab750ecf71ac4d7e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2566617546397457854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498610581656607467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c171ab3767c3e7443b3267812a1b9244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  targetstring: Player
+  whatisground:
+    serializedVersion: 2
+    m_Bits: 8
+  whatisplayer:
+    serializedVersion: 2
+    m_Bits: 64
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 1
+  AlreadyAttacked: 0
+  Attackrange: 20
+  detectionRange: 35
+  TargetInSightRange: 0
+  TargetInAttackRange: 0
+  enemyState: 0
+  CreditCost: 20
+  bullet: {fileID: 5772211072083701653, guid: a4bb10925be84c142a67292c09d0625a, type: 3}
+  firePoint: {fileID: 0}
+  bulletSpeed: 35
+  baseShootingTimer: 0.3
+  BulletSpawnPoint:
+  - {fileID: 7380757318018359006}
+  - {fileID: 6243667622797627383}
+  - {fileID: 7762192325423015800}
+  - {fileID: 3320240657111800568}
+  - {fileID: 2035993805873561167}
+  - {fileID: 4055425404443975323}
+  - {fileID: 4055425404443975323}
+  - {fileID: 1313321584004756930}
 --- !u!4 &8294471412705370010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2117080209680427040, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}

@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06c19612937e99468fa58fa72145f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   targetstring: Player
   whatisground:
     serializedVersion: 2

@@ -24,7 +24,7 @@ public class MinionEnemy : EnemyScript
         EnemyLookAtTarget();
 
         GameObject bul = Instantiate(bullet, firePoint.position, Quaternion.identity);
-
+        bul.GetComponent<Enemybullet>().SetBulletDamage(damage);
 
         Vector3 shootingDirection = (Target.position - firePoint.position).normalized;
 

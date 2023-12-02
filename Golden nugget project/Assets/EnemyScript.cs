@@ -7,7 +7,7 @@ public abstract class EnemyScript : MonoBehaviour
 {
     // ai stuff//
     //public NavMeshAgent agent;
-
+    public int damage;
     protected Transform Target;
 
     public string targetstring;
@@ -39,14 +39,19 @@ public abstract class EnemyScript : MonoBehaviour
     public float baseShootingTimer;
     
     public static EnemyScript Instance { get; private set; }
-    [SerializeField] GameObject[] BulletSpawnPoint;
+    [SerializeField] protected Transform[] BulletSpawnPoint;
     private float ShootingTimer;
 
-    private void Awake()
+    private void Start()
     {
         SetTarget(targetstring);
+        SetShootingTimer();
+    }
+    public void SetShootingTimer()
+    {
         ShootingTimer = baseShootingTimer / gameObject.GetComponent<Entity>().attackspeedModifier;
     }
+    
     
     public void SetTarget(string target)
     {
@@ -138,7 +143,7 @@ public abstract class EnemyScript : MonoBehaviour
                         
                         EnemyAttack();
                         AlreadyAttacked = true;
-                        ShootingTimer = baseShootingTimer;
+                        SetShootingTimer();
                     }
                     else
                     {
@@ -156,7 +161,7 @@ public abstract class EnemyScript : MonoBehaviour
         }
         
 
-        //OnKill effect update//
+        
         if (gameObject != null)
         {
             if (gameObject.GetComponent<Entity>().HealthPoints <= 0)
