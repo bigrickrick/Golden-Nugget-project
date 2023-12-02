@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
-
+    
     public float life = 2;
     
     
@@ -12,6 +12,6 @@ public abstract class Bullet : MonoBehaviour
     {
         Destroy(gameObject, life);
     }
-
+    
     public abstract void OnCollisionEnter(Collision collision);
 }

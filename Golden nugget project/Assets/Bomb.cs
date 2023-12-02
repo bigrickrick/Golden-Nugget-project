@@ -16,18 +16,28 @@ public class Bomb : MonoBehaviour
     {
         if (!hasExploded && collision.gameObject.CompareTag("Enemy"))
         {
-            explosionParticles.GetComponent<ExplosionDamage>().setbombdamage(bombDamage);
             GameObject explosion = Instantiate(explosionParticles.gameObject, transform.position, Quaternion.identity);
             explosion.GetComponent<ParticleSystem>().Play();
+
+            ExplosionDamage explosionDamage = explosion.GetComponent<ExplosionDamage>();
+            if (explosionDamage != null)
+            {
+                explosionDamage.SetTarget("Enemy");
+                explosionDamage.setbombdamage(bombDamage);
+            }
+
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            audioSource.clip = explosionSound;
-            audioSource.Play();
-
-
-            Destroy(bomb);
-
-            
-            hasExploded = true;
+            if (audioSource != null && explosionSound != null)
+            {
+                audioSource.clip = explosionSound;
+                audioSource.Play();
+                Destroy(bomb);
+                hasExploded = true;
+            }
+            else
+            {
+                Debug.LogWarning("AudioSource or explosionSound is not set.");
+            }
         }
     }
 }

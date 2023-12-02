@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
     public ObjectHolder objectHolder;
     public float PushForce;
     public PassiveManager passiveManager;
-    
+    public bool hasHitSomething;
+
     private void Start()
     {
         gameInput.OnShoot += GameInput_OnShoot;

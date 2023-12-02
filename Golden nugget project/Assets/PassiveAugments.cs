@@ -6,16 +6,16 @@ public abstract class PassiveAugments : ScriptableObject
 {
     public float Duration;
     public PassiveType passiveType;
+    public float CooldownPassive;
     public enum PassiveType
     {
         OnKill,
         OnHit,
-        OnMovementActivate,
-        OnUtilityActivate,
+        OnAbilityActivate,
         AlwaysActive
     }
     public abstract void ActivatePassive();
-    public abstract void SetToOriginalState();
+    public virtual void SetToOriginalState() { }
     public PassiveType GetPassiveType()
     {
         return passiveType; 

@@ -6,12 +6,13 @@ public class ExplosionDamage : MonoBehaviour
 {
     private int bombdamage;
     public AudioClip explosionSound;
+    private string Target;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(Target))
         {
-            Debug.Log("enemy has been hit by explosion");
-            setbombdamage(15);
+            
+            
             Entity enemy = collision.gameObject.GetComponent<Entity>();
             PlayExplosionSound();
             enemy.DamageRecieve(bombdamage);
@@ -22,6 +23,10 @@ public class ExplosionDamage : MonoBehaviour
     {
         bombdamage = damage;
     }
+    public void SetTarget(string targettokill)
+    {
+        Target = targettokill;
+    }
     private void Update()
     {
         if (!gameObject.GetComponent<ParticleSystem>().isPlaying)
@@ -30,10 +35,7 @@ public class ExplosionDamage : MonoBehaviour
             gameObject.SetActive(false);
             
         }
-        else if (gameObject.GetComponent<ParticleSystem>().isPlaying)
-        {
-            
-        }
+        
         
     }
 
