@@ -25,7 +25,7 @@ public class PlateBombScript : MonoBehaviour
         }
     }
 
-    private void TriggerExplosion()
+    public void TriggerExplosion()
     {
         if (explosionParticles != null)
         {

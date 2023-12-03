@@ -55,7 +55,7 @@ public class CombatDirectory : MonoBehaviour
         if (IsSpawntimerRunning == true)
         {
             timer -= Time.deltaTime;
-            //Debug.Log("time before next spawn " +timer);
+
             if (timer <= 0)
             {
                 int creditGain = 50 + difficultyScaler * 20;
@@ -65,6 +65,7 @@ public class CombatDirectory : MonoBehaviour
                 difficultyScaler += 1;
             }
         }
+
     }
     private void Start()
     {
@@ -82,7 +83,7 @@ public class CombatDirectory : MonoBehaviour
     {
         float RandomX = randomCoordonateForSpawn.Next(-20, 20);
         float RandomY = randomCoordonateForSpawn.Next(-20, 20);
-        Vector3 newPosition = new Vector3(RandomX, 0, RandomY);
+        Vector3 newPosition = new Vector3(RandomX+Player.Instance.transform.position.x, 0, RandomY+ Player.Instance.transform.position.z);
         spawnPoint.position = newPosition;
     }
 }

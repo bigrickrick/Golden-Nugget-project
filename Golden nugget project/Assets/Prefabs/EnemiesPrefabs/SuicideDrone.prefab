@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7073012161913417763}
+  - component: {fileID: 924821125030834286}
   m_Layer: 0
   m_Name: ProtectingPlate
   m_TagString: Untagged
@@ -110,6 +111,19 @@ Transform:
   - {fileID: 8700483966603760013}
   m_Father: {fileID: 2117080209680427040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &924821125030834286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171762899245867003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6a1c5b2afac9b4588e468d146310e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 90
 --- !u!1 &2623838989181787427
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +357,7 @@ GameObject:
   - component: {fileID: 2117080209680427040}
   - component: {fileID: -2486354681763335933}
   - component: {fileID: 4617174061070491540}
-  - component: {fileID: 954028222308684133}
+  - component: {fileID: 6084962959838391781}
   m_Layer: 0
   m_Name: SuicideDrone
   m_TagString: Enemy
@@ -414,7 +428,7 @@ MonoBehaviour:
   EntitySpeed: 10
   attackspeedModifier: 1
   gettinghitSoundEffect: {fileID: 8300000, guid: 1fe147783b5e32849a17046d2c0d38e3, type: 3}
---- !u!114 &954028222308684133
+--- !u!114 &6084962959838391781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,10 +437,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6842954925123431761}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06c19612937e99468fa58fa72145f29, type: 3}
+  m_Script: {fileID: 11500000, guid: e7db90bddd6d79d41974cc6d4db89253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   targetstring: Player
   whatisground:
     serializedVersion: 2
@@ -437,18 +451,23 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
   AlreadyAttacked: 0
-  Attackrange: 10
+  Attackrange: 5
   detectionRange: 30
   TargetInSightRange: 0
   TargetInAttackRange: 0
   enemyState: 0
-  CreditCost: 10
-  bullet: {fileID: 5772211072083701653, guid: a4bb10925be84c142a67292c09d0625a, type: 3}
+  CreditCost: 30
+  bullet: {fileID: 0}
   firePoint: {fileID: 0}
   bulletSpeed: 35
-  baseShootingTimer: 1.5
-  BulletSpawnPoint:
-  - {fileID: 0}
+  baseShootingTimer: 1
+  BulletSpawnPoint: []
+  HasDied: 0
+  plateBombs:
+  - {fileID: 619505577324914380}
+  - {fileID: 7150445684636104187}
+  - {fileID: 8586422999416600309}
+  - {fileID: 8143835059212663595}
 --- !u!1 &7702721108384289593
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +630,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
+--- !u!114 &7150445684636104187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1283657049385870631, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
+  m_PrefabInstance: {fileID: 942647335544450850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69a5f1d8314bee4c9a2a884bac483fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7674589733878341469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7463988996825542783, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
@@ -673,6 +703,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
+--- !u!114 &8586422999416600309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1283657049385870631, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
+  m_PrefabInstance: {fileID: 1803289845139090476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69a5f1d8314bee4c9a2a884bac483fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9120907436094413907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7463988996825542783, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
@@ -735,6 +776,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
+--- !u!114 &8143835059212663595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1283657049385870631, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
+  m_PrefabInstance: {fileID: 2245957422559781362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69a5f1d8314bee4c9a2a884bac483fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8700483966603760013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7463988996825542783, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
@@ -802,3 +854,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7463988996825542783, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
   m_PrefabInstance: {fileID: 7401496373507324949}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &619505577324914380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1283657049385870631, guid: 9ae6cb5641daed24189831112166fbb9, type: 3}
+  m_PrefabInstance: {fileID: 7401496373507324949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69a5f1d8314bee4c9a2a884bac483fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1554,7 +1554,7 @@ MonoBehaviour:
   TargetInSightRange: 0
   TargetInAttackRange: 0
   enemyState: 0
-  CreditCost: 20
+  CreditCost: 50
   bullet: {fileID: 5772211072083701653, guid: a4bb10925be84c142a67292c09d0625a, type: 3}
   firePoint: {fileID: 0}
   bulletSpeed: 35
@@ -1568,6 +1568,7 @@ MonoBehaviour:
   - {fileID: 4055425404443975323}
   - {fileID: 4055425404443975323}
   - {fileID: 1313321584004756930}
+  HasDied: 0
 --- !u!4 &8294471412705370010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2117080209680427040, guid: 625cb7beea8546c40bf7db25771cc120, type: 3}

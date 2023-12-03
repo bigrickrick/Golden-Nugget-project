@@ -6,7 +6,7 @@ public class ExplosionDamage : MonoBehaviour
 {
     private int bombdamage;
     public AudioClip explosionSound;
-    private string Target;
+    public string Target;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(Target))

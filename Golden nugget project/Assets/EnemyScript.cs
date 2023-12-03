@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public abstract class EnemyScript : MonoBehaviour
 {
-    // ai stuff//
-    //public NavMeshAgent agent;
+    
     public int damage;
     protected Transform Target;
 
@@ -167,11 +166,13 @@ public abstract class EnemyScript : MonoBehaviour
             if (gameObject.GetComponent<Entity>().HealthPoints <= 0)
             {
                 Player.Instance.HasEnemyHasdied(true);
+                HasDied = true;
 
             }
         }
        
     }
+    public bool HasDied = false;
 
     private void OnDrawGizmosSelected()
     {

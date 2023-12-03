@@ -10,6 +10,7 @@ public abstract class AbilityHolder : MonoBehaviour
     protected float DurationTime;
     public bool abilityActivated;
     public int AbilityCharges;
+
     protected enum AbilityState
     {
         ready,
@@ -17,4 +18,9 @@ public abstract class AbilityHolder : MonoBehaviour
         cooldown
     }
     protected AbilityState state = AbilityState.ready;
+
+    public float returncooldowntime()
+    {
+        return cooldowntime;
+    }
 }
