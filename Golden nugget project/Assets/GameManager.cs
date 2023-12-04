@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; set; }
     private float timebetweenAugments = 0;
 
     [SerializeField] private GameObject augmentUi;
     [SerializeField] private List<WeaponPickUp> weaponlist;
-    
+    public bool augmentOut = true;
+
     private void Update()
     {
         timebetweenAugments -= Time.deltaTime;
-        
-        
-        if(timebetweenAugments <= 0)
+
+        if (timebetweenAugments <= 0 && augmentUi != null)
         {
             augmentUi.SetActive(true);
-            augmentUi.GetComponent<AugmentManager>().CreateChoice();
+            
+
+            
+            augmentUi.GetComponent<AugmentManager>()?.CreateChoice();
+
             timebetweenAugments = 60;
         }
-        
+       
     }
     private void SummonGun()
     {

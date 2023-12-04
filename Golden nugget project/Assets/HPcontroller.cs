@@ -4,41 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HPcontroller : MonoBehaviour
 {
-    public Slider hpBar;
+    
+    [SerializeField] private Image hpBar;
+    [SerializeField] private TMPro.TextMeshProUGUI hpbartext;
 
-    private Entity playerEntity; // Store the player's Entity component
-    private float maxHP;
-    private float currentHP;
+      
+    
 
-    private void Start()
+    
+    private void Update()
     {
-        playerEntity = Player.Instance.GetComponent<Entity>();
-
-        if (playerEntity != null)
-        {
-            maxHP = playerEntity.HealthPoints;
-            currentHP = maxHP;
-            hpBar.maxValue = maxHP;
-            hpBar.value = currentHP;
-        }
-        else
-        {
-            Debug.LogError("Player Entity component not found.");
-        }
-        hpBar.gameObject.SetActive(true);
+        UpdateHpbar();
     }
-
-    public void UpdateHP()
+    private void UpdateHpbar()
     {
-        if (playerEntity != null)
-        {
-            currentHP = playerEntity.HealthPoints;
-            hpBar.value = currentHP;
-            //Debug.Log("hp bar updated");
-        }
-        else
-        {
-            Debug.LogError("Player Entity component not found.");
-        }
+        float healthPercentage = (float)Player.Instance.GetComponent<Entity>().HealthPoints / (float)Player.Instance.GetComponent<Entity>().maxHealthPoints;
+        Debug.Log("Health Percentage: " + healthPercentage);
+        hpBar.fillAmount = healthPercentage;
+        hpbartext.text = Player.Instance.GetComponent<Entity>().HealthPoints.ToString();
+
     }
 }

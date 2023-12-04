@@ -7,27 +7,26 @@ public class ObjectHolder : MonoBehaviour
     public bool ObjectHasBeenPickedUp;
     
     private PickUpItems Object;
-
+    public AudioClip ThrowSound;
     public void PickUpObject()
     {
-        
         Collider[] colliders = Physics.OverlapSphere(transform.position, Player.Instance.pickuprange);
 
         foreach (Collider col in colliders)
         {
             if (col.CompareTag("Pickable"))
             {
-                
-                // Check if the object is not already picked up
-                
                 if (!ObjectHasBeenPickedUp)
                 {
-                    // Pick up the object within range
                     ObjectHasBeenPickedUp = true;
                     Object = col.GetComponent<PickUpItems>();
-                    Object.transform.parent = transform;
-                    Object.transform.localPosition = Vector3.zero;
-                    Object.transform.localRotation = Quaternion.identity;
+
+                    
+                    Vector3 offset = Player.Instance.transform.forward * 2;
+                    Object.transform.position = Player.Instance.transform.position + offset;
+
+                    
+                    Object.transform.parent = Player.Instance.transform;
                     break;
                 }
             }
@@ -37,8 +36,11 @@ public class ObjectHolder : MonoBehaviour
     public void ThrowObject()
     {
         ObjectHasBeenPickedUp = false;
+        Object.objectThrown = true;
         Debug.Log("object thrown");
-
+        AudioSource audioSource = Player.Instance.GetComponent<AudioSource>();
+        audioSource.clip = ThrowSound;
+        audioSource.Play();
         if (Object != null)
         {
             

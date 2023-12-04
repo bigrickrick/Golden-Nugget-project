@@ -9,7 +9,7 @@ public class Playerbullet : Bullet
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-
+            Player.Instance.hasHitSomething = true;
             Entity enemy = collision.gameObject.GetComponent<Entity>();
             Destroy(gameObject);
             if (enemy != null)

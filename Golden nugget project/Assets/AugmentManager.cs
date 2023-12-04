@@ -33,6 +33,7 @@ public class AugmentManager : MonoBehaviour
                 augments.Apply(Player.Instance.GetComponent<Entity>());
                 augmentsList.Remove(augments);
                 gameObject.SetActive(false);
+                
                 return;
             }
         }

@@ -6,6 +6,7 @@ public class PassiveManager : MonoBehaviour
 {
     public List<PassiveAugments> passiveAugmentslist;
     float DurationTime;
+    float cooldowntime;
     enum PassiveState
     {
         ready,
@@ -53,10 +54,121 @@ public class PassiveManager : MonoBehaviour
             }
             else if (type == PassiveAugments.PassiveType.OnHit)
             {
-                
+                switch (state)
+                {
+                    case PassiveState.ready:
+                        DurationTime = passive.Duration;
+                        if (Player.Instance.hasHitSomething == true)
+                        {
+                            passive.ActivatePassive();
+                            state = PassiveState.active;
+                        }
+                        break;
+                    case PassiveState.active:
+
+                        if (DurationTime > 0)
+                        {
+                            Debug.Log("Buff is activated");
+                            DurationTime -= Time.deltaTime;
+                            
+                        }
+                        else
+                        {
+                            state = PassiveState.cooldown;
+                            
+                        }
+                        break;
+                    case PassiveState.cooldown:
+                        passive.SetToOriginalState();
+                        Player.Instance.hasHitSomething = false;
+                        state = PassiveState.ready;
+                        break;
+                }
             }
-           
-            
+            else if(type == PassiveAugments.PassiveType.AlwaysActive)
+            {
+                switch (state)
+                {
+                    case PassiveState.ready:
+                        DurationTime = passive.Duration;
+                        cooldowntime = passive.CooldownPassive;
+                        
+                        state = PassiveState.active;
+                        break;
+                    case PassiveState.active:
+
+                        if (DurationTime > 0)
+                        {
+                            Debug.Log("Buff is activated");
+                            passive.ActivatePassive();
+                            DurationTime -= Time.deltaTime;
+
+                        }
+                        else
+                        {
+                            state = PassiveState.cooldown;
+
+                        }
+                        break;
+                    case PassiveState.cooldown:
+                        passive.SetToOriginalState();
+                        if(cooldowntime > 0)
+                        {
+                            cooldowntime -= Time.deltaTime;
+                        }
+                        else
+                        {
+                            state = PassiveState.ready;
+                        }
+                        
+                        break;
+                }
+            }
+            else if (type == PassiveAugments.PassiveType.OnAbilityActivate)
+            {
+                switch (state)
+                {
+                    case PassiveState.ready:
+                        DurationTime = passive.Duration;
+                        cooldowntime = passive.CooldownPassive;
+                        if(Player.Instance.movementAbility.abilityActivated== true || Player.Instance.utilityAbilityHolder.abilityActivated == true)
+                        {
+                            state = PassiveState.active;
+                        }
+
+                        
+                        break;
+                    case PassiveState.active:
+
+                        if (DurationTime > 0)
+                        {
+                            Debug.Log("Buff is activated");
+                            passive.ActivatePassive();
+                            DurationTime -= Time.deltaTime;
+
+                        }
+                        else
+                        {
+                            state = PassiveState.cooldown;
+
+                        }
+                        break;
+                    case PassiveState.cooldown:
+                        passive.SetToOriginalState();
+                        if (cooldowntime > 0)
+                        {
+                            cooldowntime -= Time.deltaTime;
+                        }
+                        else
+                        {
+                            state = PassiveState.ready;
+                        }
+
+                        break;
+                }
+            }
+
+
         }
     }
 }

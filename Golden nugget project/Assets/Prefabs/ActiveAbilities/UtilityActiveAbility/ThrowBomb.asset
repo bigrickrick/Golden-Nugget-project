@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: ThrowBomb
   m_EditorClassIdentifier: 
   name: Bomb
-  cooldown: 3
-  Duration: 0
-  ActiveTime: 0
+  cooldown: 2
+  Duration: 3
+  ActiveTime: 0.1
   particle: {fileID: 0}
+  AbilitySoundEffect: {fileID: 8300000, guid: b1559c00436f2bf48b4f7d40f64bf2d2, type: 3}
   bomb: {fileID: 1014399350160975396, guid: fc8b9f7402d7da64085b432487803980, type: 3}
-  throwSpeed: 1000
+  throwForce: 3.5
+  liftMultiplier: 0.2

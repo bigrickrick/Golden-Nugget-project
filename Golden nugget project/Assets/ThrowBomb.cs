@@ -4,21 +4,40 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ThrowBomb : ActiveUtilityAbility
 {
-    [SerializeField] Bomb bomb;
-    public float throwSpeed;
-    private Transform ThrowPoint;
+    [SerializeField] private Bomb bomb;
+    public float throwForce;
+    private Transform throwPoint;
+    public float liftMultiplier = 1f;
+    private Camera mainCamera;
+
+    public void Awake()
+    {
+        
+        
+    }
     public override void Activate()
     {
-        ThrowPoint = Player.Instance.gunInventory.currentGunUsed.transform;
-        GameObject Bomb = Instantiate(bomb.gameObject, Player.Instance.transform.position, Quaternion.identity);
+        mainCamera = Camera.main;
+        throwPoint = Player.Instance.transform;
+        Ray ray = mainCamera.ScreenPointToRay(Player.Instance.mousePosition.MousePosition);
 
-        Vector3 shootingDirection = (Player.Instance.mousePosition.MousePosition - ThrowPoint.position).normalized;
-        shootingDirection.y = 1;
-        Debug.Log("shootingdirection "+shootingDirection);
-        Rigidbody rb = Bomb.GetComponent<Rigidbody>();
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit))
+        {
+            
 
-        rb.AddForce(shootingDirection * throwSpeed);
+            GameObject bombobject = Instantiate(bomb.gameObject, throwPoint.position, Quaternion.identity);
+            Rigidbody rb = bombobject.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                Vector3 direction = (Player.Instance.mousePosition.MousePosition - throwPoint.position).normalized;
+
+                rb.AddForce(direction * throwForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * throwForce * liftMultiplier, ForceMode.Impulse);
+            }
+        }
 
 
     }
