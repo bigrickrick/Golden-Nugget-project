@@ -4241,63 +4241,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &1764172095
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.641361
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0000019073486
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 13.528645
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117080209680427040, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6842954925123431761, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
-      propertyPath: m_Name
-      value: SuicideDrone
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f061a9ac4253968409a740f304bf15b5, type: 3}
 --- !u!1001 &1820628475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5017,4 +4960,3 @@ SceneRoots:
   - {fileID: 898742669}
   - {fileID: 1820628475}
   - {fileID: 360318453}
-  - {fileID: 1764172095}
