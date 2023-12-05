@@ -201,6 +201,7 @@ MonoBehaviour:
   currentAbility: {fileID: 11400000, guid: d4ae016141b9ce94295481075453240a, type: 2}
   abilityActivated: 0
   AbilityCharges: 1
+  MovementAbilityCharges: 0
 --- !u!1 &81228863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1401,7 @@ GameObject:
   - component: {fileID: 762720104}
   - component: {fileID: 762720103}
   - component: {fileID: 762720102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2226,6 +2227,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7f1417b8f43d6f94488e38c6cb3a6014, type: 2}
   - {fileID: 11400000, guid: 5105a5a8e3fe0c44ca36288015b0c087, type: 2}
   - {fileID: 11400000, guid: 0fc011037d8eee541b2a2d23ee1829d7, type: 2}
+  - {fileID: 11400000, guid: dc4f5e99e7357ec47b590490a4f07dcd, type: 2}
+  - {fileID: 11400000, guid: d2b75a43af32e9e4fa889b4172340add, type: 2}
   choices:
   - {fileID: 423318846}
   - {fileID: 1113761671}
@@ -2291,7 +2294,7 @@ GameObject:
   - component: {fileID: 1077420763}
   - component: {fileID: 1077420762}
   - component: {fileID: 1077420761}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2396,7 +2399,7 @@ GameObject:
   - component: {fileID: 1095637568}
   - component: {fileID: 1095637567}
   - component: {fileID: 1095637566}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2643,6 +2646,7 @@ MonoBehaviour:
   weaponlist:
   - {fileID: 2113660918717926507, guid: 23514bf57c043fc48a46ee342ed4b69a, type: 3}
   - {fileID: 5624559088100155215, guid: 5980ccb55da5e9646bb0c293356e7125, type: 3}
+  augmentOut: 1
 --- !u!4 &1141711180
 Transform:
   m_ObjectHideFlags: 0
@@ -3088,7 +3092,7 @@ MonoBehaviour:
   currentAbility: {fileID: 11400000, guid: ccfccca039b28bd4d8a9ef784fbd85e9, type: 2}
   abilityActivated: 0
   AbilityCharges: 1
-  utilityAbilityCharges: 1
+  utilityAbilityCharges: 0
 --- !u!1 &1471636322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,7 +3503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630701510}
   - component: {fileID: 1630701509}
-  - component: {fileID: 1630701508}
+  - component: {fileID: 1630701511}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3507,26 +3511,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1630701508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630701507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1630701509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3557,6 +3541,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630701511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630701507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &1710094867
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,7 +4313,7 @@ GameObject:
   - component: {fileID: 2023984756}
   - component: {fileID: 2023984755}
   - component: {fileID: 2023984754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4404,7 +4418,7 @@ GameObject:
   - component: {fileID: 2056153889}
   - component: {fileID: 2056153888}
   - component: {fileID: 2056153887}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

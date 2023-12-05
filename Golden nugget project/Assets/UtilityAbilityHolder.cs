@@ -5,9 +5,10 @@ using UnityEngine;
 public class UtilityAbilityHolder : AbilityHolder
 {
     public int utilityAbilityCharges;
+
+    
     private void Update()
     {
-        
         if (currentAbility != null)
         {
             switch (state)
@@ -20,23 +21,32 @@ public class UtilityAbilityHolder : AbilityHolder
                     break;
 
                 case AbilityState.active:
-                    currentAbility.Activate();
-                    currentAbility.PlaySoundEffect();
-                    state = AbilityState.cooldown;
-                    DurationTime = currentAbility.Duration;
-                    cooldowntime = currentAbility.cooldown;
-                    utilityAbilityCharges--; 
-                    break;
-
-                case AbilityState.cooldown:
-                    
-                    if (cooldowntime  > 0)
+                    if (utilityAbilityCharges > 0)
                     {
-                        cooldowntime -= Time.deltaTime; 
+                        currentAbility.Activate();
+                        currentAbility.PlaySoundEffect();
+                        DurationTime = currentAbility.Duration;
+
+                        utilityAbilityCharges--;
+                        
+                        abilityActivated = false;
+                        state = state = AbilityState.ready;
                     }
                     else
                     {
-                        
+                         state = AbilityState.cooldown;
+                    }
+                    
+
+                    break;
+
+                case AbilityState.cooldown:
+                    if (cooldowntime > 0)
+                    {
+                        cooldowntime -= Time.deltaTime;
+                    }
+                    else
+                    {
                         if (utilityAbilityCharges <= 0)
                         {
                             utilityAbilityCharges = AbilityCharges;
@@ -48,6 +58,5 @@ public class UtilityAbilityHolder : AbilityHolder
             }
         }
     }
-
 }
 

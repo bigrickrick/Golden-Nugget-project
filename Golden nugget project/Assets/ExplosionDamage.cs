@@ -44,6 +44,7 @@ public class ExplosionDamage : MonoBehaviour
         if (explosionSound != null)
         {
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+
             audioSource.pitch = Random.Range(0.9f, 1.1f); 
             audioSource.volume = 0.25f; 
             audioSource.PlayOneShot(explosionSound);

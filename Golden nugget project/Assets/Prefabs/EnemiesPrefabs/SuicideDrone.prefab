@@ -422,10 +422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395326a477e211649841edc57e56990f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 30
-  maxHealthPoints: 30
+  HealthPoints: 10
+  maxHealthPoints: 10
   entity: {fileID: 6842954925123431761}
-  EntitySpeed: 10
+  EntitySpeed: 20
   attackspeedModifier: 1
   gettinghitSoundEffect: {fileID: 8300000, guid: 1fe147783b5e32849a17046d2c0d38e3, type: 3}
 --- !u!114 &6084962959838391781
@@ -571,8 +571,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.7726184
+  m_Center: {x: 0, y: 0.2726184, z: 0}
 --- !u!1001 &942647335544450850
 PrefabInstance:
   m_ObjectHideFlags: 0
