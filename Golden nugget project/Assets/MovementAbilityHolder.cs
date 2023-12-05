@@ -104,16 +104,17 @@ public class MovementAbilityHolder : AbilityHolder
 
                     break;
             }
+            if (DurationTime <= 0)
+            {
+                Player.Instance.PushForce -= 30;
+
+                currentAbility.SetStateBack();
+                StartCoroutine(StopParticle());
+            }
         }
        
         
-        if(DurationTime <= 0)
-        {
-            Player.Instance.PushForce -= 30;
-
-            currentAbility.SetStateBack();
-            StartCoroutine(StopParticle());
-        }
+        
     }
     
 }

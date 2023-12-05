@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     private bool FinalBossSummon = false;
     public bool augmentOut = true;
     [SerializeField] private BossScript boss;
-
+    [SerializeField] private BossHpBar bossHp;
+    
+    private float timer = 30;
     private void Update()
     {
         timebetweenAugments -= Time.deltaTime;
@@ -28,35 +30,33 @@ public class GameManager : MonoBehaviour
             timebetweenAugments = 30;
         }
         SummonFinalBoss(boss);
+        
        
     }
-    private void SummonGun()
-    {
-        WeaponPickUp randomGun;
-
-        randomGun = weaponlist[Random.Range(0, weaponlist.Count)];
-        Vector3 initialPosition = new Vector3(0f, 1f, 0f);
-
-        Instantiate(randomGun, initialPosition, Quaternion.identity);
-        Debug.Log("gun has been summon");
-    }
+    
+    
+    
     private void SummonFinalBoss(BossScript boss)
     {
-        if(combatDirectory.difficultyScaler >= 10)
+        
+        if (combatDirectory.difficultyScaler >= 10)
         {
             if(FinalBossSummon == false)
             {
+                bossHp.gameObject.SetActive(true);
+                
                 combatDirectory.gameObject.SetActive(false);
-                Vector3 bossSpawnPosition = new Vector3(0f, 0f, 0f); 
+                Vector3 bossSpawnPosition = new Vector3(0f, 0f, 0f);
                 BossScript bossInstance = Instantiate(boss, bossSpawnPosition, Quaternion.identity);
-
+                bossHp.boss = bossInstance;
 
                 bossInstance.targetstring = "Player";
                 FinalBossSummon = true;
-                Debug.Log("Boss has been summoned");
+                
+                
             }
-            
 
+            
         }
     }
 }

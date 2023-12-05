@@ -12,6 +12,7 @@ public class CombatDirectory : MonoBehaviour
     private float timer = 5;
     public int difficultyScaler = 1;
     private float timebetweenspawn = 1f;
+    public bool UltraHardMode;
     
     //this will be the list of enemies that the GameDirectory can spawn
     [SerializeField] private EnemyScript[] EnemyList;
@@ -58,7 +59,7 @@ public class CombatDirectory : MonoBehaviour
 
             if (timer <= 0)
             {
-                int creditGain = 30 + difficultyScaler * 10;
+                int creditGain = 50 + difficultyScaler * 10;
                 Credit = creditGain;
                 IsSpawntimerRunning = false;
                 timer = 30;
@@ -69,7 +70,7 @@ public class CombatDirectory : MonoBehaviour
     }
     private void Start()
     {
-        Credit = 30;
+        Credit = 50;
     }
 
     public int GenerateRandomEnemyNumber()

@@ -51,6 +51,7 @@ public abstract class BossScript : MonoBehaviour
     {
         SetTarget(targetstring);
         SetShootingTimer();
+        
     }
     public void SetShootingTimer()
     {
@@ -230,6 +231,7 @@ public abstract class BossScript : MonoBehaviour
             
         }
         
+
     }
     public bool HasDied = false;
 
@@ -243,4 +245,5 @@ public abstract class BossScript : MonoBehaviour
        
         
     }
+    
 }
