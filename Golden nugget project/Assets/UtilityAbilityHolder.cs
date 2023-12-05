@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UtilityAbilityHolder : AbilityHolder
 {
-    public int utilityAbilityCharges;
+    public int utilityAbilityCharges =1;
 
     
     private void Update()

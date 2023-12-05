@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Teleport
   m_EditorClassIdentifier: 
   name: Teleport
-  cooldown: 5
+  cooldown: 3
   Duration: 0.0001
   ActiveTime: 0.1
   particle: {fileID: 2241042941818325738, guid: 82cb3da40c7c2b04da26ac3d12eb0648, type: 3}

@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
     private float timebetweenAugments = 0;
-
+    [SerializeField] private CombatDirectory combatDirectory;
     [SerializeField] private GameObject augmentUi;
     [SerializeField] private List<WeaponPickUp> weaponlist;
+    private bool FinalBossSummon = false;
     public bool augmentOut = true;
+    [SerializeField] private BossScript boss;
 
     private void Update()
     {
@@ -23,8 +25,9 @@ public class GameManager : MonoBehaviour
             
             augmentUi.GetComponent<AugmentManager>()?.CreateChoice();
 
-            timebetweenAugments = 60;
+            timebetweenAugments = 30;
         }
+        SummonFinalBoss(boss);
        
     }
     private void SummonGun()
@@ -36,5 +39,24 @@ public class GameManager : MonoBehaviour
 
         Instantiate(randomGun, initialPosition, Quaternion.identity);
         Debug.Log("gun has been summon");
+    }
+    private void SummonFinalBoss(BossScript boss)
+    {
+        if(combatDirectory.difficultyScaler >= 10)
+        {
+            if(FinalBossSummon == false)
+            {
+                combatDirectory.gameObject.SetActive(false);
+                Vector3 bossSpawnPosition = new Vector3(0f, 0f, 0f); 
+                BossScript bossInstance = Instantiate(boss, bossSpawnPosition, Quaternion.identity);
+
+
+                bossInstance.targetstring = "Player";
+                FinalBossSummon = true;
+                Debug.Log("Boss has been summoned");
+            }
+            
+
+        }
     }
 }

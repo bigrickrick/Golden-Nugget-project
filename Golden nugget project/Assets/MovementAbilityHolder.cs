@@ -14,7 +14,7 @@ public class MovementAbilityHolder : AbilityHolder
         currentAbility.ParticleCreatorAndDeleter(false);
 
     }
-    public int MovementAbilityCharges;
+    public int MovementAbilityCharges = 1;
 
     private void Update()
     {
@@ -56,22 +56,28 @@ public class MovementAbilityHolder : AbilityHolder
 
                                 activeTime = currentAbility.ActiveTime;
                                 DurationTime -= Time.deltaTime;
-                                abilityActivated = false;
-                                MovementAbilityCharges -= 1;
-                                state = AbilityState.ready;
+                                
                             }
                             else
                             {
-                                Player.Instance.PushForce -= 30;
+                                abilityActivated = false;
+
                                 
+                                Player.Instance.PushForce -= 30;
+                                MovementAbilityCharges -= 1;
                                 currentAbility.SetStateBack();
                                 StartCoroutine(StopParticle());
-                                
+                                state = AbilityState.ready;
+
 
                             }
                         }
                         else
                         {
+                            Player.Instance.PushForce -= 30;
+
+                            currentAbility.SetStateBack();
+                            StartCoroutine(StopParticle());
                             cooldowntime = currentAbility.cooldown;
                             state = AbilityState.cooldown;
                         }
@@ -101,7 +107,13 @@ public class MovementAbilityHolder : AbilityHolder
         }
        
         
+        if(DurationTime <= 0)
+        {
+            Player.Instance.PushForce -= 30;
 
+            currentAbility.SetStateBack();
+            StartCoroutine(StopParticle());
+        }
     }
     
 }

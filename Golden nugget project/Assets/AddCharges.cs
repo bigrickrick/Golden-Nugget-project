@@ -14,11 +14,11 @@ public class AddCharges : Augments
     {
         if(ability == WhichAbility.Utiliy)
         {
-            Player.Instance.movementAbility.AbilityCharges += 1;
+            Player.Instance.movementAbility.AbilityCharges += Player.Instance.movementAbility.AbilityCharges+1;
         }
         else if (ability == WhichAbility.Utiliy)
         {
-            Player.Instance.utilityAbilityHolder.AbilityCharges += 1;
+            Player.Instance.utilityAbilityHolder.AbilityCharges += Player.Instance.utilityAbilityHolder.AbilityCharges + 1;
         }
     }
 }
