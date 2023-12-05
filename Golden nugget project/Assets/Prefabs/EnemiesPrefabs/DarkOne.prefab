@@ -109,7 +109,7 @@ MonoBehaviour:
   HealthPoints: 400
   maxHealthPoints: 400
   entity: {fileID: 6842954925123431761}
-  EntitySpeed: 15
+  EntitySpeed: 30
   attackspeedModifier: 1
   gettinghitSoundEffect: {fileID: 8300000, guid: 1fe147783b5e32849a17046d2c0d38e3, type: 3}
 --- !u!114 &2491869424658303985
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368e405590465d248811f119756f5806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 15
   targetstring: Player
   whatisground:
     serializedVersion: 2
@@ -135,7 +135,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   AlreadyAttacked: 0
-  Attackrange: 10
+  Attackrange: 30
   detectionRange: 60
   BaseTimeBeforeTeleportingAttack: 10
   BaseTimeBeforeSummonAllies: 10
@@ -146,11 +146,11 @@ MonoBehaviour:
   enemyState: 0
   bullet: {fileID: 5772211072083701653, guid: 0d7eeca69981eb740ac0b8e5e1775020, type: 3}
   firePoint: {fileID: 3874324343661267746}
-  bulletSpeed: 35
-  baseShootingTimer: 1
+  bulletSpeed: 40
+  baseShootingTimer: 0.5
   BulletSpawnPoint: []
-  dashCooldown: 5
-  BaseDashDuration: 1
+  dashCooldown: 3.5
+  BaseDashDuration: 2
   IsDashing: 0
   HasDied: 0
   dashParticles: {fileID: 1505502165548171982, guid: 90a55ec23fd4cee4780db2a3884b6a2e, type: 3}

@@ -12,7 +12,7 @@ public abstract class BossScript : MonoBehaviour
     public LayerMask whatisground, whatisplayer;
 
     public Vector3 walkPoint;
-    private bool walkPointSet;
+    protected bool walkPointSet;
     public float walkPointRange;
     public bool AlreadyAttacked;
     public float Attackrange;
@@ -130,11 +130,12 @@ public abstract class BossScript : MonoBehaviour
                 }
                 else
                 {
-                    Patroling();
+                    enemyState = EnemyState.ChaseTarget;
                 }
                 break;
 
             case EnemyState.ChaseTarget:
+                ChaseTarget();
                 if (TimeBeforeTeleportingAttack <= 0)
                 {
                     TeleportingAttackReady = true;
@@ -144,6 +145,7 @@ public abstract class BossScript : MonoBehaviour
                 if (TimeBeforeSummonAllies <= 0)
                 {
                     SummonAlliesReady = true;
+                    enemyState = EnemyState.SummonAllies;
                 }
 
                 if (!TargetInSightRange)
@@ -155,19 +157,8 @@ public abstract class BossScript : MonoBehaviour
                 {
                     enemyState = EnemyState.RangedAttack;
                 }
-                else if (TeleportingAttackReady)
-                {
-                    enemyState = EnemyState.TeleportingAttack;
-                }
-                else if (SummonAlliesReady)
-                {
-                    SummonAlliesReady = false;
-                    enemyState = EnemyState.SummonAllies;
-                }
-                else
-                {
-                    ChaseTarget();
-                }
+                
+                
                 break;
 
             case EnemyState.RangedAttack:
@@ -185,7 +176,7 @@ public abstract class BossScript : MonoBehaviour
                     }
                     else
                     {
-                        ChaseTarget();
+                        enemyState = EnemyState.ChaseTarget;
                         ShootingTimer -= Time.deltaTime;
                     }
                 }

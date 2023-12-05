@@ -14,7 +14,7 @@ public class MovementAbilityHolder : AbilityHolder
         currentAbility.ParticleCreatorAndDeleter(false);
 
     }
-    private int MovementAbilityCharges;
+    public int MovementAbilityCharges;
 
     private void Update()
     {
@@ -33,6 +33,7 @@ public class MovementAbilityHolder : AbilityHolder
                     {
                         currentAbility.ParticleCreatorAndDeleter(true);
                         Player.Instance.PushForce += 30;
+
                         state = AbilityState.active;
                         activeTime = currentAbility.ActiveTime;
                     }
@@ -45,52 +46,56 @@ public class MovementAbilityHolder : AbilityHolder
                     }
                     else
                     {
-                       
-                        if (DurationTime > 0)
+                        if (MovementAbilityCharges>0)
                         {
-                            
-                            currentAbility.Activate();
-                            currentAbility.PlaySoundEffect();
-                            
-                            activeTime = currentAbility.ActiveTime;
-                            DurationTime -= Time.deltaTime;
+                            if (DurationTime > 0)
+                            {
+
+                                currentAbility.Activate();
+                                currentAbility.PlaySoundEffect();
+
+                                activeTime = currentAbility.ActiveTime;
+                                DurationTime -= Time.deltaTime;
+                                abilityActivated = false;
+                                MovementAbilityCharges -= 1;
+                                state = AbilityState.ready;
+                            }
+                            else
+                            {
+                                Player.Instance.PushForce -= 30;
+                                
+                                currentAbility.SetStateBack();
+                                StartCoroutine(StopParticle());
+                                
+
+                            }
                         }
                         else
                         {
-                            Player.Instance.PushForce -= 30;
-                            MovementAbilityCharges -= 1;
-                            currentAbility.SetStateBack();
-                            StartCoroutine(StopParticle());
                             cooldowntime = currentAbility.cooldown;
                             state = AbilityState.cooldown;
-
                         }
+                       
+                        
                     }
 
 
                     break;
                 case AbilityState.cooldown:
-                    
-                    if(MovementAbilityCharges > 0)
+
+
+                    if (cooldowntime > 0)
                     {
-                        
-                        state = AbilityState.ready;
+                        cooldowntime -= Time.deltaTime;
                     }
                     else
                     {
-                        if(cooldowntime > 0)
-                        {
-                            cooldowntime -= Time.deltaTime;
-                        }
-                        else
-                        {
-                            MovementAbilityCharges = AbilityCharges;
-                            state = AbilityState.ready;
-
-                        }
+                        MovementAbilityCharges = AbilityCharges;
+                        abilityActivated = false;
+                        state = AbilityState.ready;
 
                     }
-                    
+
                     break;
             }
         }

@@ -28,4 +28,5 @@ public class SuicideDrone : EnemyScript
         transform.LookAt(Target);
     }
     
+
 }

@@ -6,6 +6,7 @@ public class DarkOne : BossScript
 {
     public override void ChaseTarget()
     {
+        Debug.Log("Boss has acitvated the chase target function");
         Vector3 direction = Target.position - transform.position;
         direction.Normalize();
 

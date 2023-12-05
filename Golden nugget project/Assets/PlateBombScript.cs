@@ -9,7 +9,7 @@ public class PlateBombScript : MonoBehaviour
     public float explosionRadius;
     public AudioClip explosionSound;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     private void Start()
     {
