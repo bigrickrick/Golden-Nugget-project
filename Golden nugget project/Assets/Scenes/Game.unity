@@ -691,7 +691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &520237304
 Transform:
   m_ObjectHideFlags: 0
@@ -2610,6 +2610,91 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113761669}
   m_CullTransparentMesh: 1
+--- !u!1001 &1120308106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.456877
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8819895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117080209680427040, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491869424658303985, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491869424658303985, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: dashSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491869424658303985, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: dashParticles
+      value: 
+      objectReference: {fileID: 1505502165548171982, guid: 90a55ec23fd4cee4780db2a3884b6a2e, type: 3}
+    - target: {fileID: 2491869424658303985, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: BaseDashDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491869424658303985, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: teleportParticles
+      value: 
+      objectReference: {fileID: 2241042941818325738, guid: ee7c324582203f1459acc45065a81ba9, type: 3}
+    - target: {fileID: 2491869424658303985, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: BaseTeleportationstack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617174061070491540, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: EntitySpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842954925123431761, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
+      propertyPath: m_Name
+      value: DarkOne
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c86e2aa3303c0248b899d5a8efe92e2, type: 3}
 --- !u!1 &1141711178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,6 +2728,7 @@ MonoBehaviour:
   weaponlist:
   - {fileID: 2113660918717926507, guid: 23514bf57c043fc48a46ee342ed4b69a, type: 3}
   - {fileID: 5624559088100155215, guid: 5980ccb55da5e9646bb0c293356e7125, type: 3}
+  augmentOut: 1
 --- !u!4 &1141711180
 Transform:
   m_ObjectHideFlags: 0
@@ -4526,3 +4612,4 @@ SceneRoots:
   - {fileID: 898742669}
   - {fileID: 1820628475}
   - {fileID: 360318453}
+  - {fileID: 1120308106}
