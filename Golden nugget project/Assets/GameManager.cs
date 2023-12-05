@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BossScript boss;
     [SerializeField] private BossHpBar bossHp;
     
-    private float timer = 30;
+    
     private void Update()
     {
         timebetweenAugments -= Time.deltaTime;
