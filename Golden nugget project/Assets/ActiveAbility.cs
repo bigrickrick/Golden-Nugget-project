@@ -12,7 +12,7 @@ public abstract class ActiveAbility : ScriptableObject
     public AudioClip AbilitySoundEffect;
 
 
-
+    //use to disable and activate particules effect
     public abstract void ParticleCreatorAndDeleter(bool yOrN);
     public virtual void Activate() { }
 

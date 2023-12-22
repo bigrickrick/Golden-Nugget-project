@@ -9,6 +9,7 @@ public abstract class AbilityHolder : MonoBehaviour
     protected float activeTime;
     protected float DurationTime;
     public bool abilityActivated;
+    // number of times you can use the ability before it goes in cooldown
     public int AbilityCharges;
     
     protected enum AbilityState

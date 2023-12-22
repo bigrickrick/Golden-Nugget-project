@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
 {
 
 
-   
+    //When you want to call the  player for anything you write Player.Instance
+    
+
     public static Player Instance { get; private set; }
 
 
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
         gameInput.OnInteractAction += GameInput_OnInteractAction;
         gameInput.OnUtilityAbility += GameInput_OnUtilityAbility;
         isPaused = false;
+        
     }
 
     private void GameInput_OnUtilityAbility(object sender, EventArgs e)

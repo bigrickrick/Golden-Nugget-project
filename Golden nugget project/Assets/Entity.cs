@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
     public float EntitySpeed;
     public float attackspeedModifier;
     public AudioClip gettinghitSoundEffect;
+    //the player and all enemies have that component so when you want to change an entiy stat you must use the getcomponent.
     public void DamageRecieve(int damage)
     {
         
